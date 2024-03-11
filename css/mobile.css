@@ -1,0 +1,396 @@
+* {
+    box-sizing: border-box;
+    font-family: "Pacifico", cursive;
+}
+
+
+header{
+    background-color: rgb(233, 222, 209);
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    background-color: #eeee;
+    overflow: hidden;
+}    
+
+/******** titulo H1 **********/
+
+.titulo-app {
+    text-align: center;
+    font-size: 25px;
+    font-weight: 600;
+    margin: 10px;
+    letter-spacing: -1px; /*el espaciado entre letras se reducirá en 1 píxel*/
+}
+/*******botones*************/
+
+.contenedor-botones{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 5px;
+    justify-content: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.botones-panel {
+    justify-content: center;
+}
+
+.boton{
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px;
+    border-radius: 3px;
+    transition: background-color 0.2s ;
+    font-size: 14px;
+    cursor: pointer;
+}
+    
+/****   efecto al hacer clic ****/
+.boton-text:hover{  /*button-text:focus, .button-default:hover, .button-default:focus    */
+    background-color:  #bdbdbd;
+}
+
+
+.contenedor-botones .boton {
+    margin: 2.5px;
+}
+
+input, button, select, textarea  {
+    border: 0;
+    background-color: rgb(194, 192, 189);;
+    display: block;
+    outline: 0;
+    
+}
+ 
+/* se oculta boton modo oscuro*/
+.modo-oscuro .boton-tema-claro, .modo-claro .boton-tema-oscuro {
+    display: none;
+}
+
+/*   ver si es necesario usar
+.modo-claro .boton-tema-claro, .modo-oscuro .boton-tema-oscuro {
+    display: flex;
+}  */
+
+.icono{
+    padding-right: 15px;
+    display: block;
+}
+.button-icon-text {
+    margin-right: 5px;
+    display: block;
+}
+
+/******** contenedor editor meme **************/
+
+.contenedor-editor{
+    display: flex;
+    
+}
+
+.contenedor-meme{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    background-color: rgb(223, 249, 171);
+    
+  
+}
+
+.editor-meme{
+    width: 100%;
+    height: 280px;
+    max-width: 610px;
+    background-color: rgb(197, 194, 194);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+
+.texto-meme{
+
+    background-color: rgb(255, 255, 255);
+    position: static;
+    padding: 6px 60px;
+    font-size: 14px;
+
+}
+    
+
+.imagen-meme{
+    width: 100%;
+    flex-grow: 1;
+    background-size: cover;
+}
+
+#boton-descarga-meme{
+    height: auto;
+    margin-top: 20px;
+    padding: 15px 15px;
+    background-color: rgb(233, 222, 209);
+    font-size: 25px;
+    font-weight: 400;
+    font-size: 14px;
+
+}
+
+
+
+/**********************************PANEL DE CONTROLES *******/
+
+.panel {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 30px 15px;
+    overflow: auto;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #f5dd85;
+    z-index: 10;
+    
+}
+/*
+.oculto{
+ display: none;  
+}*/
+  
+.boton-cierre-panel{
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    border-radius: 3px;
+    cursor: pointer;
+    }
+    
+.titulo-panel{
+
+    margin-top: 0;
+    margin-bottom: 20px;
+    width: 100%;
+    font-size: 15px;
+    text-align: center;
+}
+
+.panel-control-img{
+    margin-bottom: 20px;
+    }
+
+
+.titulo-control-img{
+    margin-bottom: 8px;
+    width: 100%;
+    font-size: 12px;
+    margin-top: 0;
+}    
+
+.control-input-img{
+    width: 100%;
+    height: 35px;
+    background-color: rgb(194, 192, 189);
+    transition: background-color 0.2s;
+    padding: 5px 10px;
+    margin-bottom: 5px;
+}
+
+.panel-control-fondo{
+    display: flex;
+    justify-content: space-between;
+    height: 35px;
+}
+
+
+.panel-color .dos-controles-color{
+    width: calc(50% - 5px);
+    margin-bottom: 0;
+}
+
+.dos-controles-color{
+    position: relative;
+    height: 35px;
+    display: flex;
+    font-size: 12px;
+}
+
+.panel-color {
+     width: 50%;
+     position: relative;
+     height: 30px;
+     display: flex;
+     top:-7%
+     
+}
+.panel-color input{
+    width:20px;
+    height: 35px;
+    position:relative;
+    bottom: -4px;
+    padding: 5px 0px;
+    
+}
+
+
+.panel-color > span {
+    display:flex;
+    height: 35px;
+    width: 100px;
+    padding-top: 8px;
+    transform: translateY(10%);
+    font-size: 12px;
+    background-color: rgb(194, 192, 189);
+}
+
+/************** FILTROS  **********/
+
+.control-deslizante{
+    margin-top: 15px;
+
+}
+
+label {
+    display: block;
+    font-size: 13px;
+    
+    
+}
+
+.control-deslizante input{
+    width: 100%;
+    background-color: #bdbdbd;
+    
+}
+
+.control-slider > input[type='range'] {
+    transition: 0.2s;
+    
+}
+
+input[type='range'] {
+    width: 100%;
+    background-color: #5a5d68;
+    border-radius: 10px;
+    appearance: none;
+    height: 6px;
+    margin-top: 10px;
+/** COMO DARLE COLOR A TODO EL CONTROL DE RANGO ,CIRCULO***/
+}
+
+.boton-restablecer{
+    background-color: rgb(233, 222, 209);
+}
+
+#boton-restablecer-filtros{
+    margin-top: 30px;
+}
+
+/******** PANEL TEXTO *******/
+/****************************/
+
+.panel-control {
+    margin-bottom: 20px;
+}
+
+
+
+.contenedor-tilde{
+    display: flex;
+    align-items: center;
+}
+
+.control-checkbox{
+    margin-top: 10px;
+    font-size: 12px;
+}
+
+.contenedor-tamaño-alineacion{
+    display: flex;
+    align-items: center;
+}
+
+#text-size-input {
+    width: calc(50% - 2.5px);
+    margin-right: 2.5px;
+}
+
+.boton-alineacion {
+    width: calc(50% - 2.5px);
+    justify-content: space-between;
+    margin-left: 2.5px;
+
+}
+
+.boton-alineacion .button {
+    margin: 0;
+    width: calc(100% / 3 - 10px / 3);
+    height: 36px;
+    min-width: 0;
+}
+
+.panel-control {
+    margin-bottom: 20px;
+   
+}
+
+.panel-control-columns {
+    display: flex;
+    justify-content: space-between;
+}
+
+.panel-control-columns .panel-control-column {
+    width: calc(50% - 5px);
+    margin-bottom: 0;
+}
+
+.panel-control-color {
+    position: relative;
+    display: flex;
+}
+
+.panel-control-color > input[type='color'] {
+    width: 100%;
+    height: 36px;
+    
+}
+
+.panel-control-color > span {
+    position: absolute;
+    left: 35px;
+    top: 10%;
+    transform: translateY(10%);
+    font-size: 12px;
+   
+}
+
+.contenedor-botones-contorno {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    height: 36px;
+    margin-bottom: 5px;
+}
+
+.contenedor-botones-contorno .button:first-child {
+    margin-left: 0;
+}
+
+.contenedor-botones-contorno .button {
+    margin: 2.5px;
+}
+
+.button-default {
+    background-color:rgb(194, 192, 189);
+}
