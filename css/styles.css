@@ -20,7 +20,23 @@
 
 /****   VARIABLES   root  *****/
 
+:root{
+    --color-header-botones: #FEC89A;
+    --color-boton-default-hover: #FFB5A7;
+    --background-cont-meme: #F9DCC4;
+    --background-editor-meme: #F8EDEB;
+    --background-texto-meme:#FCD5CE;
+    --color-panel:  #F9DCC4;
+    --color-input: #F8EDEB;
+    
 
+
+    --color-text: #040404;
+    --color-title-panel: rgb(33 33 33 / 80%);
+    --color-title-control: rgb(33 33 33 / 70%);
+    --font-primary: 'Open Sans', sans-serif;
+    --border-radius: 3px;
+}
 /********animaciones posibles***************************/
 
     
