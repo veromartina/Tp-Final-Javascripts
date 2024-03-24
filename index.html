@@ -8,151 +8,153 @@
   <title>Editor de memes</title>
   <link rel="stylesheet" href="./css/styles.css">
   <link rel="shortcut icon" href="./assets/imagenes/reir.png" type="image/x-icon">
-
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
-<body class="modo-claro">
+<body>
 
   <!-- HEADER -->
 
   <header>
-    <h1 class="titulo-app">Generador de Memes</h1>
-    <div class="contenedor-botones botones-panel">
+    <div class="botones-header">
+      <h1 class="titulo-app">Generador de Memes</h1>
+      <div class="contenedor-botones botones-panel">
 
-      <button class="boton boton-text" id="panel-img-button"><i class="fas fa-file-image button-icon-text"
-          aria-hidden="true"></i>Imagen</button>
+        <button class="boton boton-text" id="panel-img-button"><i class="fas fa-file-image button-icon-text"
+            aria-hidden="true"></i>Imagen</button>
 
-      <button class="boton boton-text" id="text-panel-button"><i class="fas fa-font button-icon-text"
-          aria-hidden="true"></i>Texto</button>
+        <button class="boton boton-text" id="text-panel-button"><i class="fas fa-font button-icon-text"
+            aria-hidden="true"></i>Texto</button>
 
-      <button class="boton boton-text boton-tema-oscuro" id="boton-tema-oscuro"
-        aria-label="Cambiar a modo oscuro">
-        <i class="far fa-lightbulb button-icon-text" aria-hidden="true"></i>Modo oscuro
-      </button>
 
-      <button class="boton boton-text boton-tema-claro" id="boton-tema-claro"
-        aria-label="Cambiar a modo claro">
-        <i class="fas fa-lightbulb button-icon-text" aria-hidden="true"></i>Modo claro
-      </button>
 
-    </div>
-  </header>
- 
+        <div class="switch-mode">
+          <i class="bi bi-brightness-high-fill"></i>
+          <label class="switch">
+            <input type="checkbox" id="toggleDarkModeButton" onclick="toggleDarkMode()" checked />
 
-  <!--
-      **************** EDITOR ****************
-    -->
-
-  <div class="contenedor-editor">
-
-    <main class="contenedor-meme">
-      <div class="editor-meme" id="editor-meme">
-        <p id="texto-superior" class="texto-meme">TEXTO SUPERIOR</p>
-
-        <div src="" alt="" id="imagen-meme" aria-label="Imagen de meme"></div>
-
-        <p id="texto-inferior" class="texto-meme">TEXTO INFERIOR</p>
+            <span class="slider" id="round">
+          </label>
+          <i class="bi bi-moon-fill"></i>
+          </span>
+        </div>
       </div>
 
-      <button type="button" class="boton boton-text" id="boton-descarga-meme"><i
-          class="fas fa-download button-icon-text" aria-hidden="true"></i>Descargar meme</button>
-
-    </main>
-
-    <aside class="panel oculto" id="panel">
-      <button class="boton-cierre-panel" id="boton-cierre-panel" aria-label="Cerrar panel">
-        <i class="fas fa-times" aria-hidden="true"></i>
-      </button>
-
       <!--
+      **************** EDITOR ****************
+      -->
+
+      <div class="contenedor-editor" id="contenedor-editor">
+
+        <main class="contenedor-meme">
+          <div class="editor-meme" id="editor-meme">
+            <p id="texto-superior" class="texto-meme">TEXTO SUPERIOR</p>
+
+            <div src="" alt="" id="imagen-meme" aria-label="Imagen de meme"></div>
+
+            <p id="texto-inferior" class="texto-meme">TEXTO INFERIOR</p>
+          </div>
+
+          <button type="button" class="boton boton-text" id="boton-descarga-meme"><i
+              class="fas fa-download button-icon-text" aria-hidden="true"></i>Descargar meme</button>
+          
+        </main>
+      </div>
+
+        <aside class="panel oculto" id="panel">
+          <button class="boton-cierre-panel" id="boton-cierre-panel" aria-label="Cerrar panel">
+            <i class="fas fa-times" aria-hidden="true"></i>
+          </button>
+
+          <!--
         *************PANEL IMAGEN********************
       -->
 
-      <section class="panel-imgen" id="panel-imgen">
-        <h2 class="titulo-panel">IMAGEN</h2>
-        <div class="panel-control-img">
-          <h3 class="titulo-control-img">URL</h3>
-          <input type="text" class="control-input-img" id="url-img-input" aria-label="URL de imagen">
-        </div>
-
-        <!--****************PANEL FONDO********** -->
-
-        <div class="panel-control-img">
-          <h3 class="titulo-control-img"">FONDO</h3>
-          <div class="panel-control-fondo">
-            <div class="panel-color dos-controles-color">
-              <input aria-label="Color de fondo de imagen" type="color" id="modo-color-input" value="#FFFFFF"
-                aria-label="Color de fondo de imagen">
-                
-              <span id="modo-color-inicio" aria-hidden="true">#FFFFFF</span>
+          <section class="panel-imgen" id="panel-imgen">
+            <h2 class="titulo-panel">IMAGEN</h2>
+            <div class="panel-control-img">
+              <h3 class="titulo-control-img">URL</h3>
+              <input type="text" class="control-input-img" id="url-img-input" aria-label="URL de imagen">
             </div>
 
-            <div class="dos-controles-color">
-              <select aria-label="Modo de mezcla de fondo de imagen" id="mode-select" class="control-input-img">
-                <option value="unset">Ninguno</option>
-                <option value="lighten">Aclarar</option>
-                <option value="darken">Oscurecer</option>
-                <option value="difference">Diferencia</option>
-                <option value="luminosity">Luminosidad</option>
-                <option value="multiply">Multiplicar</option>
-              </select>
+            <!--****************PANEL FONDO********** -->
+
+            <div class="panel-control-img">
+              <h3 class="titulo-control-img"">FONDO</h3>
+          <div class=" panel-control-fondo">
+                <div class="panel-color dos-controles-color">
+                  <input aria-label="Color de fondo de imagen" type="color" id="modo-color-input" value="#FFFFFF"
+                    aria-label="Color de fondo de imagen">
+
+                  <span id="modo-color-inicio" aria-hidden="true">#FFFFFF</span>
+                </div>
+
+                <div class="dos-controles-color">
+                  <select aria-label="Modo de mezcla de fondo de imagen" id="mode-select" class="control-input-img">
+                    <option value="unset">Ninguno</option>
+                    <option value="lighten">Aclarar</option>
+                    <option value="darken">Oscurecer</option>
+                    <option value="difference">Diferencia</option>
+                    <option value="luminosity">Luminosidad</option>
+                    <option value="multiply">Multiplicar</option>
+                  </select>
+                </div>
             </div>
-          </div>
-        </div>
-        <!--
+      </div>
+      <!--
           -----------------------[ FILTROS ]-----------------------
         -->
-        <div class="panel-control">
-          <h3 class="titulo-control-img">FILTROS</h3>
+      <div class="panel-control">
+        <h3 class="titulo-control-img">FILTROS</h3>
 
-          <div class="control-deslizante">
-            <label for="brightness-slider">Brillo</label>
-            <input type="range" id="brightness-slider" min="0" max="1" value="1" step="0.1">
-          </div>
-
-          <div class="control-deslizante">
-            <label for="opacity-slider">Opacidad</label>
-            <input type="range" id="opacity-slider" min="0" max="1" value="1" step="0.1">
-          </div>
-
-          <div class="control-deslizante">
-            <label for="contrast-slider">Contraste</label>
-            <input type="range" id="contrast-slider" min="100" max="1000" value="100">
-          </div>
-
-          <div class="control-deslizante">
-            <label for="blur-slider">Desenfoque</label>
-            <input type="range" id="blur-slider" min="0" max="10" value="0" step="0.1">
-          </div>
-
-          <div class="control-deslizante">
-            <label for="grayscale-slider">Escala de grises</label>
-            <input type="range" id="grayscale-slider" min="0" max="100" value="0">
-          </div>
-
-          <div class="control-deslizante">
-            <label for="sepia-slider">Sepia</label>
-            <input type="range" id="sepia-slider" min="0" max="100" value="0">
-          </div>
-
-          <div class="control-deslizante">
-            <label for="hue-slider">Hue</label>
-            <input type="range" id="hue-slider" min="0" max="360" value="0">
-          </div>
-
-          <div class="control-deslizante">
-            <label for="saturate-slider">Saturado</label>
-            <input type="range" id="saturate-slider" min="100" max="1000" value="100" step="10">
-          </div>
-          
-          <div class="control-deslizante">
-            <label for="invert-slider">Negativo</label>
-            <input type="range" id="invert-slider" min="0" max="1" value="0" step="0.1">
-          </div>
+        <div class="control-deslizante">
+          <label for="brightness-slider">Brillo</label>
+          <input type="range" id="brightness-slider" min="0" max="1" value="1" step="0.1">
         </div>
-        <div class="restablecimiento">
+
+        <div class="control-deslizante">
+          <label for="opacity-slider">Opacidad</label>
+          <input type="range" id="opacity-slider" min="0" max="1" value="1" step="0.1">
+        </div>
+
+        <div class="control-deslizante">
+          <label for="contrast-slider">Contraste</label>
+          <input type="range" id="contrast-slider" min="100" max="1000" value="100">
+        </div>
+
+        <div class="control-deslizante">
+          <label for="blur-slider">Desenfoque</label>
+          <input type="range" id="blur-slider" min="0" max="10" value="0" step="0.1">
+        </div>
+
+        <div class="control-deslizante">
+          <label for="grayscale-slider">Escala de grises</label>
+          <input type="range" id="grayscale-slider" min="0" max="100" value="0">
+        </div>
+
+        <div class="control-deslizante">
+          <label for="sepia-slider">Sepia</label>
+          <input type="range" id="sepia-slider" min="0" max="100" value="0">
+        </div>
+
+        <div class="control-deslizante">
+          <label for="hue-slider">Hue</label>
+          <input type="range" id="hue-slider" min="0" max="360" value="0">
+        </div>
+
+        <div class="control-deslizante">
+          <label for="saturate-slider">Saturado</label>
+          <input type="range" id="saturate-slider" min="100" max="1000" value="100" step="10">
+        </div>
+
+        <div class="control-deslizante">
+          <label for="invert-slider">Negativo</label>
+          <input type="range" id="invert-slider" min="0" max="1" value="0" step="0.1">
+        </div>
+      </div>
+      <div class="restablecimiento">
         <button class="boton boton-restablecer" id="boton-restablecer-filtros">Reestablecer filtros</button>
-        </div>
+      </div>
       </section>
       <!--
         ***************************TEXT PANEL
@@ -286,9 +288,12 @@
           </select>
         </div>
       </section>
-  </div>
-  </aside>
-  <script src="https://kit.fontawesome.com/287a092c3d.js" crossorigin="anonymous"></script>
+    </div>
+    </aside>
+    <script src="index.js"></script>
+    <script src="https://kit.fontawesome.com/287a092c3d.js" crossorigin="anonymous"></script>
+
+
 </body>
 
 </html>

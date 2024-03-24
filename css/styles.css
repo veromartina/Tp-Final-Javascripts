@@ -11,7 +11,7 @@
 /* import pantallas*/
 
 @import url("./mobile.css");
-@import url("./tablet.css") screen and (min-width:760px);
+@import url("./tablet.css") screen and (min-width:768px);
 @import url("./laptops.css") screen and (min-width:1024px);
 @import url("./desktops.css") screen and (min-width: 1440px);
 
@@ -21,22 +21,16 @@
 /****   VARIABLES   root  *****/
 
 :root{
-    --color-header-botones: #FEC89A;
-    --color-boton-default-hover: #FFB5A7;
+ /*   --color-header-botones: ;
+    --color-boton-default-hover: ;*/
     --background-cont-meme: #F9DCC4;
     --background-editor-meme: #F8EDEB;
-    --background-texto-meme:#FCD5CE;
+  /*  --background-texto-meme:;*/
     --color-panel:  #F9DCC4;
     --color-input: #F8EDEB;
-    
-
-
-    --color-text: #040404;
-    --color-title-panel: rgb(33 33 33 / 80%);
-    --color-title-control: rgb(33 33 33 / 70%);
-    --font-primary: 'Open Sans', sans-serif;
-    --border-radius: 3px;
+   
 }
+
 /********animaciones posibles***************************/
 
     

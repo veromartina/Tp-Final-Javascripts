@@ -3,33 +3,31 @@
     font-family: "Pacifico", cursive;
 }
 
-
-header{
-    background-color: var(--color-header-botones);
-}
-
-body{
+body {
     display: flex;
     flex-direction: column;
     overflow: hidden;
-}    
+
+
+}
 
 /******** titulo H1 **********/
 
 .titulo-app {
     text-align: center;
     font-size: 25px;
-    font-weight: 600;
+    font-weight: 900;
     margin: 10px;
-    letter-spacing: -1px; /*el espaciado entre letras se reducirá en 1 píxel*/
+    letter-spacing: -1px;
+    /*el espaciado entre letras se reducirá en 1 píxel*/
 }
+
 /*******botones*************/
 
-.contenedor-botones{
+.contenedor-botones {
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 5px;
-    justify-content: center;
     padding-top: 10px;
     padding-bottom: 10px;
 }
@@ -38,51 +36,123 @@ body{
     justify-content: center;
 }
 
-.boton{
-    height: 30px;
+.boton {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 0 10px;
-    border-radius: 3px;
-    transition: background-color 0.2s ;
+    border-radius: 5px;
+    transition: background-color 0.2s;
     font-size: 14px;
     cursor: pointer;
+    font-weight: 500;
 }
-    
+.boton-text {
+    font-size: 25px;
+    font-weight: 400;
+    font-size: 14px;
+    height: 30px;
+    margin-top: 20px;
+    padding: 15px 15px;
+}
+
 /****   efecto al hacer clic ****/
-.boton-text:hover, .boton-text:focus, .boton-default:hover, .boton-default:focus,
-  {
-    background-color: var(--color-boton-default-hover);
-}
+.boton-text:hover,
+.boton-text:focus,
+.boton-default:hover,
+.boton-default:focus {}
 
 
 .contenedor-botones .boton {
     margin: 2.5px;
 }
 
-input, button, select, textarea  {
+input,
+button,
+select,
+textarea {
     border: 0;
-    background-color: var(--color-header-botones);
+    background-color: red;
     display: block;
     outline: 0;
-    
-}
- 
-/* se oculta boton modo oscuro*/
-.modo-oscuro .boton-tema-claro, .modo-claro .boton-tema-oscuro {
-    display: none;
+
 }
 
-/*  ver si es necesario usar
-.modo-claro .boton-tema-claro, .modo-oscuro .boton-tema-oscuro {
+
+/* cambio de modo con un solo boton deslizable  */
+
+
+.switch-mode {
     display: flex;
-}  */
+    width: 100px;
+    margin: 2.5px;
+    size: 50px;
+}
 
-.icono{
+.switch {
+    position: relative;
+    display: inline-block;
+    top: 0;
+    width: 70px;
+    height: 30px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    --webkit-transition: 0.4s;
+    transition: 0.4s;
+
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 5px;
+    bottom: 5px;
+    background-color: #997b66;
+    --webkit-transition: 0.4s;
+    transform: 0.4s;
+}
+
+
+input:checked+.slider:before {
+    --webkit-transform: translateX(25px);
+    --ms-transform: translateX(25px);
+    transform: translateX(35px);
+}
+
+.slider {
+    border-radius: 40px;
+}
+
+.slider::before {
+    border-radius: 50%;
+}
+
+
+
+
+/* ****** fin del cambio de modo a   prueba****** */
+
+
+.icono {
     padding-right: 15px;
     display: block;
 }
+
 .button-icon-text {
     margin-right: 5px;
     display: block;
@@ -90,24 +160,22 @@ input, button, select, textarea  {
 
 /******** contenedor editor meme **************/
 
-.contenedor-editor{
+.contenedor-editor {
     display: flex;
-    
+
 }
 
-.contenedor-meme{
+.contenedor-meme {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 0 20px;
-    background-color: var(--background-cont-meme)
-    
-  
+
 }
 
-.editor-meme{
+.editor-meme {
     width: 100%;
     height: 280px;
     max-width: 610px;
@@ -115,39 +183,30 @@ input, button, select, textarea  {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    
+
 }
 
-.texto-meme{
-
-    background-color: var(--background-texto-meme);
+.texto-meme {
     position: static;
     padding: 6px 60px;
     font-size: 14px;
+    font-weight: 500;
 
 }
-    
 
-.imagen-meme{
+
+.imagen-meme {
     width: 100%;
     flex-grow: 1;
     background-size: cover;
 }
 
-#boton-descarga-meme{
-    height: auto;
-    margin-top: 20px;
-    padding: 15px 15px;
-    background-color: var(--color-header-botones);
-    font-size: 25px;
-    font-weight: 400;
-    font-size: 14px;
-}
+
 /**********************************PANEL DE CONTROLES *******/
 
 .panel {
     width: 100%;
-    height: 100%;
+
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -158,23 +217,24 @@ input, button, select, textarea  {
     right: 0;
     background-color: var(--color-panel);
     z-index: 10;
-    
+
 }
-/*  para ocultar el panel hasta vero como usar javascript*/
-.oculto{
- display: block;  
+
+/*  para ocultar el panel hasta ver como usar javascript*/
+.oculto {
+    display: none;
 }
-  
-.boton-cierre-panel{
+
+.boton-cierre-panel {
     position: fixed;
     top: 15px;
     right: 15px;
     border-radius: 3px;
     cursor: pointer;
     background: none;
-    }
-    
-.titulo-panel{
+}
+
+.titulo-panel {
 
     margin-top: 0;
     margin-bottom: 20px;
@@ -183,19 +243,19 @@ input, button, select, textarea  {
     text-align: center;
 }
 
-.panel-control-img{
+.panel-control-img {
     margin-bottom: 20px;
-    }
+}
 
 
-.titulo-control-img{
+.titulo-control-img {
     margin-bottom: 8px;
     width: 100%;
     font-size: 12px;
     margin-top: 0;
-}    
+}
 
-.control-input-img{
+.control-input-img {
     width: 100%;
     height: 35px;
     background-color: var(--color-input);
@@ -204,19 +264,19 @@ input, button, select, textarea  {
     margin-bottom: 5px;
 }
 
-.panel-control-fondo{
+.panel-control-fondo {
     display: flex;
     justify-content: space-between;
     height: 35px;
 }
 
 
-.panel-color .dos-controles-color{
+.panel-color .dos-controles-color {
     width: calc(50% - 5px);
     margin-bottom: 0;
 }
 
-.dos-controles-color{
+.dos-controles-color {
     position: relative;
     height: 35px;
     display: flex;
@@ -224,26 +284,26 @@ input, button, select, textarea  {
 }
 
 .panel-color {
-     width: 50%;
-     position: relative;
-     height: 30px;
-     display: flex;
-     top:-7%
-     
+    width: 50%;
+    position: relative;
+    height: 30px;
+    display: flex;
+    top: -7%
 }
-.panel-color input{
-    width:20px;
+
+.panel-color input {
+    width: 20px;
     height: 35px;
-    position:relative;
+    position: relative;
     bottom: -4px;
     padding: 5px 0px;
-    background-color:  var(--color-input);
-    
+    background-color: var(--color-input);
+
 }
 
 
-.panel-color > span {
-    display:flex;
+.panel-color>span {
+    display: flex;
     height: 35px;
     width: 100px;
     padding-top: 8px;
@@ -254,7 +314,7 @@ input, button, select, textarea  {
 
 /************** FILTROS  **********/
 
-.control-deslizante{
+.control-deslizante {
     margin-top: 15px;
 
 }
@@ -262,18 +322,18 @@ input, button, select, textarea  {
 label {
     display: block;
     font-size: 13px;
-    
-    
+
+
 }
 
-.control-deslizante input{
+.control-deslizante input {
     width: 100%;
-    
+
 }
 
-.control-slider > input[type='range'] {
+.control-slider>input[type='range'] {
     transition: 0.2s;
-    
+
 }
 
 input[type='range'] {
@@ -283,17 +343,18 @@ input[type='range'] {
     appearance: none;
     height: 6px;
     margin-top: 10px;
-/** COMO DARLE COLOR A TODO EL CONTROL DE RANGO ,CIRCULO***/
+    /** COMO DARLE COLOR A TODO EL CONTROL DE RANGO ,CIRCULO***/
 }
-.restablecimiento{
+
+.restablecimiento {
     display: flex;
     justify-content: center;
 }
 
-.boton-restablecer{
+.boton-restablecer {
     background-color: var(--color-header-botones);
     margin: 30px 0px;
-    
+
 }
 
 
@@ -306,17 +367,17 @@ input[type='range'] {
 
 
 
-.contenedor-tilde{
+.contenedor-tilde {
     display: flex;
     align-items: center;
 }
 
-.control-checkbox{
+.control-checkbox {
     margin-top: 10px;
     font-size: 12px;
 }
 
-.contenedor-tamaño-alineacion{
+.contenedor-tamaño-alineacion {
     display: flex;
     align-items: center;
 }
@@ -342,7 +403,7 @@ input[type='range'] {
 
 .panel-control {
     margin-bottom: 20px;
-   
+
 }
 
 .panel-control-columns {
@@ -360,19 +421,19 @@ input[type='range'] {
     display: flex;
 }
 
-.panel-control-color > input[type='color'] {
+.panel-control-color>input[type='color'] {
     width: 100%;
     height: 36px;
-    
+
 }
 
-.panel-control-color > span {
+.panel-control-color>span {
     position: absolute;
     left: 35px;
     top: 10%;
     transform: translateY(10%);
     font-size: 12px;
-   
+
 }
 
 .contenedor-botones-contorno {
@@ -392,5 +453,26 @@ input[type='range'] {
 }
 
 .button-default {
-    background-color:rgb(194, 192, 189);
+    background-color: rgb(194, 192, 189);
+}
+
+
+@media screen and (min-width: 375px) {
+    .texto-meme{
+        padding: 6px 90px;
+    }
+}
+   
+
+
+
+@media screen and (min-width: 425px) {
+   
+    .texto-meme {
+        padding: 6px 120px;
+    }
+
+    .switch-mode{
+        align-items: center;
+    }
 }
