@@ -57,12 +57,13 @@ body {
 }
 
 /****   efecto al hacer clic ****/
+/*
 .boton-text:hover,
 .boton-text:focus,
 .boton-default:hover,
 .boton-default:focus {}
 
-
+*/
 .contenedor-botones .boton {
     margin: 2.5px;
 }
@@ -72,7 +73,6 @@ button,
 select,
 textarea {
     border: 0;
-    background-color: red;
     display: block;
     outline: 0;
 
@@ -82,14 +82,14 @@ textarea {
 /* cambio de modo con un solo boton deslizable  */
 
 
-.switch-mode {
+.contenedor-interruptor {
     display: flex;
     width: 100px;
     margin: 2.5px;
     size: 50px;
 }
 
-.switch {
+.interruptor {
     position: relative;
     display: inline-block;
     top: 0;
@@ -97,13 +97,13 @@ textarea {
     height: 30px;
 }
 
-.switch input {
+.interruptor input {
     opacity: 0;
     width: 0;
     height: 0;
 }
 
-.slider {
+.controlDeslizante {
     position: absolute;
     cursor: pointer;
     top: 0;
@@ -112,10 +112,11 @@ textarea {
     bottom: 0;
     --webkit-transition: 0.4s;
     transition: 0.4s;
+    border-radius: 40px;
 
 }
 
-.slider:before {
+.controlDeslizante::before {
     position: absolute;
     content: "";
     height: 20px;
@@ -125,27 +126,18 @@ textarea {
     background-color: #997b66;
     --webkit-transition: 0.4s;
     transform: 0.4s;
+    border-radius: 50%;
 }
 
 
-input:checked+.slider:before {
+input:checked+.controlDeslizante:before {
     --webkit-transform: translateX(25px);
     --ms-transform: translateX(25px);
     transform: translateX(35px);
 }
 
-.slider {
-    border-radius: 40px;
-}
 
-.slider::before {
-    border-radius: 50%;
-}
-
-
-
-
-/* ****** fin del cambio de modo a   prueba****** */
+/* ****** fin del cambio de modo ***** */
 
 
 .icono {
@@ -195,18 +187,17 @@ input:checked+.slider:before {
 }
 
 
-.imagen-meme {
+#imagen-meme {
     width: 100%;
     flex-grow: 1;
     background-size: cover;
+    background-position: center;
 }
-
 
 /**********************************PANEL DE CONTROLES *******/
 
 .panel {
     width: 100%;
-
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -221,17 +212,19 @@ input:checked+.slider:before {
 }
 
 /*  para ocultar el panel hasta ver como usar javascript*/
-.oculto {
-    display: none;
-}
+.panel-imgen{
+    display: none ;
+    width: 100%;
+    height: 350px;
+} 
 
 .boton-cierre-panel {
     position: fixed;
     top: 15px;
     right: 15px;
-    border-radius: 3px;
+    background-color: transparent;
     cursor: pointer;
-    background: none;
+    color:#997b66;
 }
 
 .titulo-panel {
@@ -257,59 +250,60 @@ input:checked+.slider:before {
 
 .control-input-img {
     width: 100%;
-    height: 35px;
-    background-color: var(--color-input);
+    height: 25px;
     transition: background-color 0.2s;
-    padding: 5px 10px;
-    margin-bottom: 5px;
+    font-size: 12px;
+    border: #997b66 solid 1px;
+    background-color: auto;
+
 }
 
 .panel-control-fondo {
     display: flex;
     justify-content: space-between;
-    height: 35px;
+    height: 25px;
+  
 }
 
 
-.panel-color .dos-controles-color {
+.panel-colores .opciones-colores {
     width: calc(50% - 5px);
     margin-bottom: 0;
 }
 
-.dos-controles-color {
-    position: relative;
-    height: 35px;
+.opciones-colores {
+    height: 20px;
     display: flex;
-    font-size: 12px;
+    font-size: 12px; 
+    
 }
 
-.panel-color {
-    width: 50%;
-    position: relative;
-    height: 30px;
+.panel-colores {
+    width: 40%;
+    height: 25px;
     display: flex;
-    top: -7%
+    border: #997b66 solid 1px;
+    align-items: center;
+    
 }
 
-.panel-color input {
+.panel-colores input {
     width: 20px;
-    height: 35px;
+    height: 20px;
     position: relative;
-    bottom: -4px;
-    padding: 5px 0px;
-    background-color: var(--color-input);
-
+    margin-left: 5px;
+    background-color: transparent;
 }
 
 
-.panel-color>span {
+.panel-colores > span {
     display: flex;
-    height: 35px;
+    height: 25px;
     width: 100px;
     padding-top: 8px;
-    transform: translateY(10%);
+    transform: translateY(-30%);
     font-size: 12px;
-    background-color: var(--color-input)
+  
 }
 
 /************** FILTROS  **********/
@@ -321,7 +315,7 @@ input:checked+.slider:before {
 
 label {
     display: block;
-    font-size: 13px;
+    font-size: 12px;
 
 
 }
@@ -456,6 +450,7 @@ input[type='range'] {
     background-color: rgb(194, 192, 189);
 }
 
+/***** Medias Queries panatalla principal *******/
 
 @media screen and (min-width: 375px) {
     .texto-meme{
@@ -476,3 +471,5 @@ input[type='range'] {
         align-items: center;
     }
 }
+
+/********* aside imagen Medias queries ********** /
