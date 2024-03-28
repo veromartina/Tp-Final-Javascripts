@@ -81,7 +81,7 @@
           <!--****************PANEL FONDO********** -->
 
           <div class="panel-control-img">
-            <h3 class="titulo-control-img"">FONDO</h3>
+            <h3 class="titulo-control-img">FONDO</h3>
           <div class=" panel-control-fondo">
               <div class="panel-colores">
                 <input aria-label="Color de fondo de imagen" type="color" id="modo-color-input" value="#FFFFFF"
@@ -92,12 +92,12 @@
 
               <div class="controles-color">
                 <select aria-label="Modo de mezcla de fondo de imagen" id="selector-fondo" class="control-input-img">
-                  <option value="unset">Ninguno</option>
-                  <option value="lighten">Aclarar</option>
-                  <option value="darken">Oscurecer</option>
-                  <option value="difference">Diferencia</option>
-                  <option value="luminosity">Luminosidad</option>
-                  <option value="multiply">Multiplicar</option>
+                  <option value="ninguno">Ninguno</option>
+                  <option value="aclarar">Aclarar</option>
+                  <option value="oscurecer">Oscurecer</option>
+                  <option value="diferencia">Diferencia</option>
+                  <option value="luminocidad">Luminosidad</option>
+                  <option value="multiplicar">Multiplicar</option>
                 </select>
               </div>
           </div>
@@ -107,50 +107,49 @@
         -->
     <div class="panel-control">
       <h3 class="titulo-control-img">FILTROS</h3>
-
       <div class="control-deslizante">
-        <label for="brightness-slider">Brillo</label>
-        <input type="range" id="brightness-slider" min="0" max="1" value="1" step="0.1">
+        <label for="brightness-deslizante">Brillo</label>
+        <input type="range"min="0" max="200" value="100" id="brightness-deslizante">
       </div>
 
       <div class="control-deslizante">
-        <label for="opacity-slider">Opacidad</label>
-        <input type="range" id="opacity-slider" min="0" max="1" value="1" step="0.1">
+        <label for="opacity-deslizante">Opacidad</label>
+        <input type="range" id="opacity-deslizante" min="0" max="100" value="100">
       </div>
 
       <div class="control-deslizante">
-        <label for="contrast-slider">Contraste</label>
-        <input type="range" id="contrast-slider" min="100" max="1000" value="100">
+        <label for="contrast-deslizante">Contraste</label>
+        <input type="range" id="contrast-deslizante" min="0" max="200" value="100">
       </div>
 
       <div class="control-deslizante">
-        <label for="blur-slider">Desenfoque</label>
-        <input type="range" id="blur-slider" min="0" max="10" value="0" step="0.1">
+        <label for="blur-deslizante">Desenfoque</label>
+        <input type="range" id="blur-deslizante"min="0" max="100" value="0">
       </div>
 
       <div class="control-deslizante">
-        <label for="grayscale-slider">Escala de grises</label>
-        <input type="range" id="grayscale-slider" min="0" max="100" value="0">
+        <label for="grayscale-deslizante">Escala de grises</label>
+        <input type="range" id="grayscale-deslizante" min="0" max="50" value="0" >
       </div>
 
       <div class="control-deslizante">
-        <label for="sepia-slider">Sepia</label>
-        <input type="range" id="sepia-slider" min="0" max="100" value="0">
+        <label for="sepia-deslizante">Sepia</label>
+        <input type="range" id="sepia-deslizante" min="0" max="100" value="0">
       </div>
 
       <div class="control-deslizante">
-        <label for="hue-slider">Hue</label>
-        <input type="range" id="hue-slider" min="0" max="360" value="0">
+        <label for="hue-deslizante">Matiz</label>
+        <input type="range" id="hue-deslizante" min="0" max="360" value="0">
       </div>
 
       <div class="control-deslizante">
-        <label for="saturate-slider">Saturado</label>
-        <input type="range" id="saturate-slider" min="100" max="1000" value="100" step="10">
+        <label for="saturate-deslizante">Saturado</label>
+        <input type="range" id="saturate-deslizante" min="0" max="200" value="100" >
       </div>
 
       <div class="control-deslizante">
-        <label for="invert-slider">Negativo</label>
-        <input type="range" id="invert-slider" min="0" max="1" value="0" step="0.1">
+        <label for="invert-deslizante">Negativo</label>
+        <input type="range" id="invert-deslizante" min="0" max="100" value="0" >
       </div>
     </div>
     <div class="restablecimiento">

@@ -22,6 +22,14 @@ const PanelImagen = document.getElementById("panel-imgen")
 
 const imagenMeme = document.getElementById("imagen-meme");//// Se obtiene el elemento con el ID q es el contenedor donde se mostrará la imagen cargada.
 
+const modoColorInput =document.getElementById("modo-color-input")
+const modoColorInicio = document.getElementById("modo-color-inicio");
+
+
+const controlesDeslizantesImagen = document.getElementsByClassName("control-deslizante");
+
+
+
 // boton cambio Modo claro/oscuro pantalla principal
 
 let isDarkMode = true;
@@ -58,6 +66,8 @@ function applyDarkMode() {
         contenedorMeme.style.backgroundColor = "#FCD5CE";
         asidePanel.style.color = "#997b66";
         asidePanel.style.backgroundColor = "#ffe3e0";
+        
+        
 
 
 
@@ -126,28 +136,94 @@ function cargarImagen() { //función que se ejecuta cuando se presiona la tecla 
 
 // fondo  //
 
-//crear un img a la misma altura que del div del fondo.
-//el img inicializarlo en display none,y ademas el z-index debe ser supeior al div .
-//cuaando cargo la imagen la etiqueta img debe ser visible y cargar la imagen como  src.
+modoColorInput.addEventListener("input", ()=>{
+    modoColorInicio.textContent = modoColorInput.value;
+    aplyBlendMode();
+});//se activará cada vez que el valor del input cambie. Cuando se dispare el evento "input", se actualiza el contenido de modoColorInicio con el valor del input modoColorInput.value, y luego se llama a la función aplyBlendMode()
 
 
+selectorFondo.addEventListener("change", ()=>{
+    imagenMeme.style.backgroundImage = aplyBlendMode();
+}); //se añade un event listener al elemento selectorFondo que escucha el evento "change", el cual se activa cuando el valor del selector cambia. Cuando esto sucede, se establece la propiedad backgroundImage del elemento imagenMeme con el resultado de llamar a la función aplyBlendMode().
 
-/*
- function opcionesFondo() {
-
-    if (selectorFondo.value === 'Ninguno'){
-        imagenMeme.style.backgroundBlendMode = 'unset';
-    }else if (selectorFondo.value == 'Aclarar'){
-        imagenMeme.style.backgroundBlendMode ='lighten';
-    }else if (selectorFondo.value == 'Oscurecer'){
-        imagenMeme.style.backgroundBlendMode = 'darken';
-    }else if (selectorFondo.value == 'Diferencia'){
-        imagenMeme.style.backgroundBlendMode = 'difference';
-    }else if (selectorFondo.value == 'Luminucidad'){
-        imagenMeme.style.backgroundBlendMode = 'luminosity';
-    }else if (selectorFondo.value == 'Multiplicar'){
-        imagenMeme.style.backgroundBlendMode = 'multiply';
+function aplyBlendMode() {
+    if (selectorFondo.value == 'ninguno'){
+     imagenMeme.style.backgroundBlendMode = 'normal';
+    } else if (selectorFondo.value == 'aclarar'){
+      imagenMeme.style.backgroundBlendMode = 'lighten';
+    } else if (selectorFondo.value == 'oscurecer'){
+      imagenMeme.style.backgroundBlendMode = 'darken';
+    } else if (selectorFondo.value == 'diferencia'){
+      imagenMeme.style.backgroundBlendMode = 'difference';
+    } else if (selectorFondo.value == 'luminucidad'){
+      imagenMeme.style.backgroundBlendMode = 'luminosity';
+    } else if (selectorFondo.value == 'multiplicar'){
+      imagenMeme.style.backgroundBlendMode = 'multiply';
     }
-     imagenMeme.style.backgroundColor = color.value;
-    };  */
+  
+    imagenMeme.style.backgroundColor = modoColorInput.value;
+  };
+  
+
+// Filtros
+
+const brightnessDeslizante = document.getElementById('brightness-deslizante');
+const opacityDeslizante = document.getElementById('opacity-deslizante');
+const contrastDeslizante = document.getElementById('contrast-deslizante');
+const blurtDeslizante = document.getElementById('blur-deslizante');
+const grayscaleDeslizante = document.getElementById('grayscale-deslizante');
+const sepiaDeslizante = document.getElementById('sepia-deslizante');
+const hueDeslizante = document.getElementById('hue-deslizante');
+const saturateDeslizante = document.getElementById('saturate-deslizante');
+const invertDeslizante = document.getElementById('invert-deslizante');
+
+const botonRestablecer = document.getElementById('boton-restablecer-filtros');
+
+// Event listeners para los Deslizantes
+
+brightnessDeslizante.addEventListener('input',() => {aplicarFiltros();});
+opacityDeslizante.addEventListener('input',() => {aplicarFiltros();});
+contrastDeslizante.addEventListener('input',() => {aplicarFiltros();});
+blurtDeslizante.addEventListener('input',() => {aplicarFiltros();});
+grayscaleDeslizante.addEventListener('input',() => {aplicarFiltros();});
+sepiaDeslizante.addEventListener('input',() => {aplicarFiltros();});
+hueDeslizante.addEventListener('input',() => {aplicarFiltros();});
+saturateDeslizante.addEventListener('input',() => {aplicarFiltros();});
+invertDeslizante.addEventListener('input',() => {aplicarFiltros();});
+
+// Función para aplicar los filtros
+
+
+function aplicarFiltros() {
+    sumtoriaFiltros = ` brightness(${brightnessDeslizante.value}%)`;
+    sumtoriaFiltros += ` opacity(${opacityDeslizante.value}%)`;
+    sumtoriaFiltros += ` contrast(${contrastDeslizante.value}%)`;
+    sumtoriaFiltros += ` blur(${blurtDeslizante.value}px)`;
+    sumtoriaFiltros += ` grayscale(${grayscaleDeslizante.value}%)`;
+    sumtoriaFiltros += ` sepia(${sepiaDeslizante.value}%)`;
+    sumtoriaFiltros += ` hue-rotate(${hueDeslizante.value}deg)`;
+    sumtoriaFiltros += ` invert(${invertDeslizante.value}%)`;
+    sumtoriaFiltros += ` saturate(${saturateDeslizante.value}%)`;
+  
+    imagenMeme.style.filter = sumtoriaFiltros;
+  };
+
+
+// Event listener para el botón de restablecimiento
+
+botonRestablecer.addEventListener('click', () => {
+  // Restablecer los valores de los Deslizantes
+  brightnessDeslizante.value = 100;
+  opacityDeslizante.value = 100;
+  contrastDeslizante.value = 100;
+  blurtDeslizante.value = 0;
+  grayscaleDeslizante.value = 0;
+  sepiaDeslizante.value = 0;
+  hueDeslizante.value = 0;
+  saturateDeslizante.value = 100;
+  invertDeslizante.value = 0;
+
+  aplicarFiltros();  // Aplico los filtros con los valores restablecidos
+});   
+
 
