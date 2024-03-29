@@ -287,56 +287,56 @@ sinTextoInferior.addEventListener('click', () => {
 
 const tiposFuente = document.getElementById('tipos-texto-fuente');
 
-const arial = document.getElementById('Arial');
-const arialblack = document.getElementById('Arialblack');
-const americantypewriter = document.getElementById('Americantypewriter');
-const andalemono = document.getElementById('Andalemono');
-const comicsanMs = document.getElementById('ComicsansMs');
-const helvetica = document.getElementById('Helvetica');
-const impact = document.getElementById('Impact');
-const verdana = document.getElementById('Verdana');
-const timesnewroman = document.getElementById('Timesnewroman');
+const arial = document.getElementById('arial');
+const arialblack = document.getElementById('arialBlack');
+const americantypewriter = document.getElementById('americantypewriter');
+const andalemono = document.getElementById('andaleMono');
+const comicsanMs = document.getElementById('comicSansMs');
+const helvetica = document.getElementById('helvetica');
+const impact = document.getElementById('impact');
+const verdana = document.getElementById('verdana');
+const timesnewroman = document.getElementById('timesNewRoman');
 
-menuFuente.addEventListener('change', () => {
-    cambiarFuente(menuFuente);
+tiposFuente.addEventListener('change', () => {
+    cambiarFuente(tiposFuente);
 });
 
-const cambiarFuente = (menuFuente) => {
-    if (menuFuente.value === 'arial'){
-        textoSuperiorH2.style.fontFamily = 'arial';
-        textoInferiorH2.style.fontFamily = 'arial';
+const cambiarFuente = (tiposFuente) => {
+    if (tiposFuente.value === 'arial'){
+        textoArriba.style.fontFamily = 'arial';
+        textoAbajo.style.fontFamily = 'arial';
     }
-    if (menuFuente.value === 'arialblack'){
-        textoSuperiorH2.style.fontFamily = 'arial black';
-        textoInferiorH2.style.fontFamily = 'arial black';
+    if (tiposFuente.value === 'arial Black'){
+        textoArriba.style.fontFamily = 'arial black';
+        textoAbajo.style.fontFamily = 'arial black';
     }
-    if (menuFuente.value === 'americantypewriter'){
-        textoSuperiorH2.style.fontFamily = 'american typewriter';
-        textoInferiorH2.style.fontFamily = 'american typewriter';
+    if (tiposFuente.value === 'americantypewriter'){
+        textoArriba.style.fontFamily = 'american typewriter';
+        textoAbajo.style.fontFamily = 'american typewriter';
     }
-    if (menuFuente.value === 'andalemono'){
-        textoSuperiorH2.style.fontFamily = 'andale mono';
-        textoInferiorH2.style.fontFamily = 'andale mono';
+    if (tiposFuente.value === 'andalemono'){
+        textoAbajo.style.fontFamily = 'andale mono';
+        textoAbajo.style.fontFamily = 'andale mono';
     }
-    if (menuFuente.value === 'comicsansMs'){
-        textoSuperiorH2.style.fontFamily = 'comic sans ms';
-        textoInferiorH2.style.fontFamily = 'comic sans ms';
+    if (tiposFuente.value === 'comicsansMs'){
+        textoArriba.style.fontFamily = 'comic sans ms';
+        textoAbajo.style.fontFamily = 'comic sans ms';
     }
     if (menuFuente.value === 'helvetica'){
-        textoSuperiorH2.style.fontFamily = 'helvetica';
-        textoInferiorH2.style.fontFamily = 'helvetica';
+        textoArriba.style.fontFamily = 'helvetica';
+        textoAbajo.style.fontFamily = 'helvetica';
     }
     if (menuFuente.value === 'impact'){
-        textoSuperiorH2.style.fontFamily = 'impact';
-        textoInferiorH2.style.fontFamily = 'impact';
+        textoArriba.style.fontFamily = 'impact';
+        textoAbajo.style.fontFamily = 'impact';
     }
     if (menuFuente.value === 'verdana'){
-        textoSuperiorH2.style.fontFamily = 'verdana';
-        textoInferiorH2.style.fontFamily = 'verdana';
+        textoArriba.style.fontFamily = 'verdana';
+        textoAbajo.style.fontFamily = 'verdana';
     }
     if (menuFuente.value === 'timesnewroman'){
-        textoSuperiorH2.style.fontFamily = 'times new roman';
-        textoInferiorH2.style.fontFamily = 'times new roman';
+        textoArriba.style.fontFamily = 'times new roman';
+        textoAbajo.style.fontFamily = 'times new roman';
     }
 }
 
