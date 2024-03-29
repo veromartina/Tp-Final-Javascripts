@@ -8,15 +8,16 @@ const botonModo = document.getElementById("round");
 const textoMemeSuperior = document.getElementById("texto-superior");
 const textoMemeInferior = document.getElementById("texto-inferior");
 const contenedorMeme = document.getElementById("contenedor-editor");
-
+const botonesHeader = document.getElementById("botones-header");
 
 //variables botones Imagen y Texto de pantalla principal
+
 const panelImagen = document.getElementById("panel-imgen");
 const panelTexto = document.getElementById("panel-text");
 
 const botonCierre = document.getElementById("boton-cierre-panel");
 const asidePanel = document.getElementById("panel");
-
+const asideOculto = document.getElementsByClassName("oculto")
 const selectorFondo = document.getElementById("selector-fondo");
 const PanelImagen = document.getElementById("panel-imgen")
 
@@ -26,8 +27,20 @@ const modoColorInput =document.getElementById("modo-color-input")
 const modoColorInicio = document.getElementById("modo-color-inicio");
 
 
-const controlesDeslizantesImagen = document.getElementsByClassName("control-deslizante");
 
+// Filtros
+
+const brightnessDeslizante = document.getElementById('brightness-deslizante');
+const opacityDeslizante = document.getElementById('opacity-deslizante');
+const contrastDeslizante = document.getElementById('contrast-deslizante');
+const blurtDeslizante = document.getElementById('blur-deslizante');
+const grayscaleDeslizante = document.getElementById('grayscale-deslizante');
+const sepiaDeslizante = document.getElementById('sepia-deslizante');
+const hueDeslizante = document.getElementById('hue-deslizante');
+const saturateDeslizante = document.getElementById('saturate-deslizante');
+const invertDeslizante = document.getElementById('invert-deslizante');
+
+const botonRestablecer = document.getElementById('boton-restablecer-filtros');
 
 
 // boton cambio Modo claro/oscuro pantalla principal
@@ -41,18 +54,31 @@ function applyDarkMode() {
         botonImagen.style.color = "#ebebeb";
         botonTexto.style.color = "#ebebeb";
         botonDescarga.style.color = "#ebebeb";
-        botonModo.style.backgroundColor = "#0d00a4"
-        botonTexto.style.backgroundColor = "#0d00a4";
-        botonImagen.style.backgroundColor = "#0d00a4";
-        botonDescarga.style.backgroundColor = "#0d00a4";
+        botonModo.style.backgroundColor = "#4361ee"
+        botonTexto.style.backgroundColor = "#4361ee";
+        botonImagen.style.backgroundColor = "#4361ee";
+        botonDescarga.style.backgroundColor = "#4361ee";
         textoMemeSuperior.style.backgroundColor = "#0d00a4";
         textoMemeInferior.style.backgroundColor = "#0d00a4";
         contenedorMeme.style.backgroundColor = "#22007c";
         asidePanel.style.backgroundColor = "#140152";
         asidePanel.style.color = "#ebebeb";
 
+        brightnessDeslizante.style.backgroundColor = "#bbd0ff";
+        opacityDeslizante.style.backgroundColor = "#bbd0ff";
+        contrastDeslizante.style.backgroundColor = "#bbd0ff";
+        grayscaleDeslizante.style.backgroundColor = "#bbd0ff";
+        sepiaDeslizante.style.backgroundColor = "#bbd0ff";
+        blurtDeslizante.style.backgroundColor = "#bbd0ff";
+        hueDeslizante.style.backgroundColor = "#bbd0ff";
+        saturateDeslizante.style.backgroundColor = "#bbd0ff";
+        invertDeslizante.style.backgroundColor = "#bbd0ff";
+
+        botonRestablecer.style.backgroundColor ="#4361ee"
+      
+
     } else {
-        document.body.style.backgroundColor = "#ffe3e0";
+        document.body.style.backgroundColor = "#FFB5A7";
         document.body.style.color = "#997b66";
         botonImagen.style.color = "#997b66";
         botonTexto.style.color = "#997b66";
@@ -63,13 +89,23 @@ function applyDarkMode() {
         botonModo.style.backgroundColor = "#FEC89A";
         textoMemeSuperior.style.backgroundColor = "#FEC89A";
         textoMemeInferior.style.backgroundColor = "#FEC89A";
+        imagenMeme.style.background = "#F9DCC4";
         contenedorMeme.style.backgroundColor = "#FCD5CE";
         asidePanel.style.color = "#997b66";
         asidePanel.style.backgroundColor = "#ffe3e0";
-        
-        
+        selectorFondo.style.color = "#997b66"; 
 
-
+        brightnessDeslizante.style.backgroundColor = "#FFB5A7";
+        opacityDeslizante.style.backgroundColor = "#FFB5A7";
+        contrastDeslizante.style.backgroundColor = "#FFB5A7";
+        grayscaleDeslizante.style.backgroundColor = "#FFB5A7";
+        sepiaDeslizante.style.backgroundColor = "#FFB5A7";
+        blurtDeslizante.style.backgroundColor = "#FFB5A7";
+        hueDeslizante.style.backgroundColor = "#FFB5A7";
+        saturateDeslizante.style.backgroundColor = "#FFB5A7";
+        invertDeslizante.style.backgroundColor = "#FFB5A7";
+        botonRestablecer.style.backgroundColor = "#FEC89A"
+      
 
     }
 }
@@ -85,37 +121,31 @@ function toggleDarkMode() {
 
 //boton cierre desplegables (X), activacion de boton imagen y boton texto
 
-
 botonImagen.addEventListener("click", () => {
-    if (asidePanel.style.display == "none") {
-        asidePanel.style.display = "flex";
-        botonCierre.style.display = "block";
-    }
+    asidePanel.style.display = "flex"
     panelImagen.style.display = "block";
     panelTexto.style.display = "none";
+    botonCierre.style.display = "block";
 
 });
-
 
 botonTexto.addEventListener("click", () => {
-    if (asidePanel.style.display == "none") {
-        asidePanel.style.display = "flex";
-        botonCierre.style.display = "block";
-    }
-    panelTexto.style.display = "block";
+    asidePanel.style.display = "flex"
     panelImagen.style.display = "none";
+    panelTexto.style.display = "block";
+    botonCierre.style.display = "block";
 
-});
+   
+});  
 
 botonCierre.addEventListener("click", () => {
     botonCierre.style.display = "none";
     asidePanel.style.display = "none";
+  
 });
 
 
-//////    se da funcionalidad a las opciones de la <seccion "panel-imgen">    /////////
-
-
+/////se da funcionalidad a las opciones de la <seccion "panel-imgen">    /////////
 //ingreso de url
 
 document.getElementById("url-img-input").addEventListener("keydown", (event) => {
@@ -129,7 +159,7 @@ function cargarImagen() { //función que se ejecuta cuando se presiona la tecla 
     let imagenUrl = document.getElementById("url-img-input").value; //se obtiene el valor del input
 
     imagenMeme.style.backgroundImage = "url('" + imagenUrl + "')"; //Se establece la URL de la imagen como fondo del elemento con ID "imagen-meme".
-
+    imagenMeme.style.backgroundSize = "cover";
     document.getElementById('url-img-input').value = "";  // se borra el valor del input con ID "url-img-input" después de cargar la imagen.
 }
 
@@ -164,20 +194,6 @@ function aplyBlendMode() {
     imagenMeme.style.backgroundColor = modoColorInput.value;
   };
   
-
-// Filtros
-
-const brightnessDeslizante = document.getElementById('brightness-deslizante');
-const opacityDeslizante = document.getElementById('opacity-deslizante');
-const contrastDeslizante = document.getElementById('contrast-deslizante');
-const blurtDeslizante = document.getElementById('blur-deslizante');
-const grayscaleDeslizante = document.getElementById('grayscale-deslizante');
-const sepiaDeslizante = document.getElementById('sepia-deslizante');
-const hueDeslizante = document.getElementById('hue-deslizante');
-const saturateDeslizante = document.getElementById('saturate-deslizante');
-const invertDeslizante = document.getElementById('invert-deslizante');
-
-const botonRestablecer = document.getElementById('boton-restablecer-filtros');
 
 // Event listeners para los Deslizantes
 
@@ -225,5 +241,103 @@ botonRestablecer.addEventListener('click', () => {
 
   aplicarFiltros();  // Aplico los filtros con los valores restablecidos
 });   
+
+
+//Texto superior e inferior del meme
+
+/*Input de entrada de texto*/
+
+const textoSuperiorInput = document.getElementById('texto-superior-input');
+const textoInferiorInput = document.getElementById('texto-inferior-input');
+const textoArriba = document.getElementById("texto-superior");
+const textoAbajo = document.getElementById("texto-inferior");
+
+textoSuperiorInput.addEventListener('input', () => {
+    textoArriba.textContent = textoSuperiorInput.value;
+});
+
+textoInferiorInput.addEventListener('input', () => {
+    textoAbajo.textContent = textoInferiorInput.value;
+});
+
+
+/*tilde superior e inferior*/
+
+const sinTextoSuperior = document.getElementById('sin-texto-superior');
+const sinTextoInferior = document.getElementById('sin-texto-inferior');
+
+sinTextoSuperior.addEventListener('click', () => {
+    if (sinTextoSuperior.checked){
+        textoArriba.style.display = "none";
+    } else {
+        textoArriba.style.display = "block";
+    }
+});
+
+sinTextoInferior.addEventListener('click', () => {
+    if (sinTextoInferior.checked){
+        textoAbajo.style.display = "none";
+    } else {
+        textoAbajo.style.display = "block";
+    }
+});
+
+
+/* cambiar tipo de fuente */
+
+const tiposFuente = document.getElementById('tipos-texto-fuente');
+
+const arial = document.getElementById('Arial');
+const arialblack = document.getElementById('Arialblack');
+const americantypewriter = document.getElementById('Americantypewriter');
+const andalemono = document.getElementById('Andalemono');
+const comicsanMs = document.getElementById('ComicsansMs');
+const helvetica = document.getElementById('Helvetica');
+const impact = document.getElementById('Impact');
+const verdana = document.getElementById('Verdana');
+const timesnewroman = document.getElementById('Timesnewroman');
+
+menuFuente.addEventListener('change', () => {
+    cambiarFuente(menuFuente);
+});
+
+const cambiarFuente = (menuFuente) => {
+    if (menuFuente.value === 'arial'){
+        textoSuperiorH2.style.fontFamily = 'arial';
+        textoInferiorH2.style.fontFamily = 'arial';
+    }
+    if (menuFuente.value === 'arialblack'){
+        textoSuperiorH2.style.fontFamily = 'arial black';
+        textoInferiorH2.style.fontFamily = 'arial black';
+    }
+    if (menuFuente.value === 'americantypewriter'){
+        textoSuperiorH2.style.fontFamily = 'american typewriter';
+        textoInferiorH2.style.fontFamily = 'american typewriter';
+    }
+    if (menuFuente.value === 'andalemono'){
+        textoSuperiorH2.style.fontFamily = 'andale mono';
+        textoInferiorH2.style.fontFamily = 'andale mono';
+    }
+    if (menuFuente.value === 'comicsansMs'){
+        textoSuperiorH2.style.fontFamily = 'comic sans ms';
+        textoInferiorH2.style.fontFamily = 'comic sans ms';
+    }
+    if (menuFuente.value === 'helvetica'){
+        textoSuperiorH2.style.fontFamily = 'helvetica';
+        textoInferiorH2.style.fontFamily = 'helvetica';
+    }
+    if (menuFuente.value === 'impact'){
+        textoSuperiorH2.style.fontFamily = 'impact';
+        textoInferiorH2.style.fontFamily = 'impact';
+    }
+    if (menuFuente.value === 'verdana'){
+        textoSuperiorH2.style.fontFamily = 'verdana';
+        textoInferiorH2.style.fontFamily = 'verdana';
+    }
+    if (menuFuente.value === 'timesnewroman'){
+        textoSuperiorH2.style.fontFamily = 'times new roman';
+        textoInferiorH2.style.fontFamily = 'times new roman';
+    }
+}
 
 

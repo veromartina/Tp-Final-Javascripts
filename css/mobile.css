@@ -7,10 +7,11 @@ body {
     display: flex;
     flex-direction: column;
     overflow: hidden;
-
-
 }
-
+header{
+    width: 100%;
+    height: 500px;
+}
 /******** titulo H1 **********/
 
 .titulo-app {
@@ -28,8 +29,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 5px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+   
 }
 
 .botones-panel {
@@ -154,11 +154,17 @@ input:checked+.controlDeslizante:before {
 /******** contenedor editor meme **************/
 
 .contenedor-editor {
+    width: 100%;
+    height: 300px;
     display: flex;
+	flex-direction: column;
+	align-items: center;
 
 }
 
 .contenedor-meme {
+    width: 100%;
+    height: 300px;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -166,40 +172,41 @@ input:checked+.controlDeslizante:before {
     align-items: center;
     padding: 0 20px;
 
+    
 }
 
 .editor-meme {
     width: 100%;
     height: 280px;
     max-width: 610px;
-    background-color: var(--background-editor-meme);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    
 
 }
 
-.texto-meme {
-    position: static;
-    padding: 6px 60px;
+#texto-superior, #texto-inferior {
+    width: 100%;
+    height: 30px;
     font-size: 14px;
     font-weight: 500;
-   text-align: center;
+    text-align: center;
 
 }
 
 
 #imagen-meme {
     width: 100%;
+    height: 250px;
     flex-grow: 1;
-    background-size: cover;
-    background-position: center;
 }
 
 /**********************************PANEL DE CONTROLES *******/
 
 .panel {
     width: 100%;
+    height: 450px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -208,17 +215,15 @@ input:checked+.controlDeslizante:before {
     position: fixed;
     top: 0;
     right: 0;
-    background-color: var(--color-panel);
     z-index: 10;
  }
 
-/*  para ocultar el panel hasta ver como usar javascript*/
-.oculto{
-    display: none;
+ .panel-imgen .panel-text {
     width: 100%;
-    height: 350px;
-} 
- 
+    height: 400px;
+   
+ }
+
 .boton-cierre-panel {
     position: fixed;
     top: 15px;
@@ -243,29 +248,34 @@ input:checked+.controlDeslizante:before {
 
 
 .titulo-control-img {
-    margin-bottom: 8px;
+
     width: 100%;
     font-size: 12px;
-    margin-top: 0;
+    padding-top: 10px;
+    margin-top: 0px;
+   
 }
 
-.control-input-img {
+.control-input-img{
     width: 100%;
-    height: 25px;
-    transition: background-color 0.2s;
-    font-size: 12px;
+	height: 36px;
+	transition: background-color 0.2s;
+    font-size: 14px;
     border: #997b66 solid 1px;
-    background-color: auto;
-
+	padding: 5px 10px;
+	margin-bottom: 5px;
 }
 
 .panel-control-fondo {
     display: flex;
     justify-content: space-between;
-    height: 25px;
+    height: 36px;
   
 }
-
+#modo-color-input{
+    width: 30px;
+    height: 30px;
+}
 
 .panel-colores .opciones-colores {
     width: calc(50% - 5px);
@@ -280,8 +290,8 @@ input:checked+.controlDeslizante:before {
 }
 
 .panel-colores {
-    width: 25%;
-    height: 25px;
+    width: 40%;
+    height: 36px;
     display: flex;
     border: #997b66 solid 1px;
     align-items: center;
@@ -289,10 +299,9 @@ input:checked+.controlDeslizante:before {
 }
 
 .panel-colores input {
-    width: 20px;
-    height: 20px;
+    
     position: relative;
-    margin-left: 5px;
+    margin-left: 1px;
     background-color: transparent;
 }
 
@@ -309,7 +318,7 @@ input:checked+.controlDeslizante:before {
 /************** FILTROS  **********/
 
 .control-deslizante {
-    margin-top: 15px;
+    margin-top: 5px;
 
 }
 
@@ -328,11 +337,10 @@ label {
 
 input[type='range'] {
     width: 100%;
-    background-color: #FFB5A7;
+    height: 8px;
     border-radius: 10px;
-    appearance: none;
-    height: 6px;
-    margin-top: 10px;
+    appearance: none;  
+    margin-top: 5px;
     /** COMO DARLE COLOR A TODO EL CONTROL DE RANGO ,CIRCULO***/
 }
 
@@ -349,6 +357,7 @@ input[type='range'] {
 
 .panel-control {
     margin-bottom: 20px;
+    
 }
 
 .contenedor-tilde {
@@ -366,10 +375,11 @@ input[type='range'] {
     align-items: center;
 }
 
-#text-size-input {
+#tamaño-fuente-input {
     width: calc(50% - 2.5px);
     margin-right: 2.5px;
 }
+
 
 .boton-alineacion {
     width: calc(50% - 2.5px);
@@ -389,21 +399,28 @@ input[type='range'] {
 .panel-control-columns {
     display: flex;
     justify-content: space-between;
+    background: transparent;
 }
 
 .panel-control-columns .panel-control-column {
     width: calc(50% - 5px);
     margin-bottom: 0;
+    
 }
 
 .panel-control-color {
     position: relative;
     display: flex;
+	height: 36px;
+	border: #997b66 solid 1px;
+	align-items: center;
+    
 }
 
 .panel-control-color>input[type='color'] {
-    width: 100%;
-    height: 36px;
+   
+    background: transparent;
+    border-radius: 50%;
 
 }
 
@@ -416,10 +433,19 @@ input[type='range'] {
 
 }
 
+#text-color-input {
+	width: 30px;
+	height: 30px;   
+}
+#text-background-color-input {
+    width: 30px;
+	height: 30px;  
+}
+
 .contenedor-botones-contorno {
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-evenly;
+    width: 100%;
     height: 36px;
     margin-bottom: 5px;
 }
@@ -430,10 +456,14 @@ input[type='range'] {
 
 .contenedor-botones-contorno .button {
     margin: 2.5px;
+    color:#997b66;
+    font-size: 12px;
 }
 
 .button-default {
-    background-color: rgb(194, 192, 189);
+    width: 100%;
+    border: #997b66 solid 1px;
+
 }
 
 /***** Medias Queries panatalla principal *******/
