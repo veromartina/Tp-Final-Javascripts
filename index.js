@@ -17,7 +17,7 @@ const panelTexto = document.getElementById("panel-text");
 
 const botonCierre = document.getElementById("boton-cierre-panel");
 const asidePanel = document.getElementById("panel");
-const asideOculto = document.getElementsByClassName("oculto")
+
 const selectorFondo = document.getElementById("selector-fondo");
 const PanelImagen = document.getElementById("panel-imgen")
 
@@ -116,13 +116,12 @@ function toggleDarkMode() {
     applyDarkMode();
 }
 
-
 // funcion boton imagen ,despliegue del aside
 
 //boton cierre desplegables (X), activacion de boton imagen y boton texto
 
 botonImagen.addEventListener("click", () => {
-    asidePanel.style.display = "flex"
+    asidePanel.style.display = "flex";
     panelImagen.style.display = "block";
     panelTexto.style.display = "none";
     botonCierre.style.display = "block";
@@ -253,11 +252,17 @@ const textoArriba = document.getElementById("texto-superior");
 const textoAbajo = document.getElementById("texto-inferior");
 
 textoSuperiorInput.addEventListener('input', () => {
-    textoArriba.textContent = textoSuperiorInput.value;
-});
+    if (textoSuperiorInput.value !== ""){
+        textoArriba.textContent = textoSuperiorInput.value;
+    } else
+        textoArriba.textContent = "TEXTO SUPERIOR";
+    });
 
 textoInferiorInput.addEventListener('input', () => {
-    textoAbajo.textContent = textoInferiorInput.value;
+    if (textoInferiorInput.value !== ""){
+        textoAbajo.textContent = textoInferiorInput.value;
+    } else
+        textoAbajo.textContent = "TEXTO INFERIOR";
 });
 
 
@@ -340,4 +345,62 @@ const cambiarFuente = (tiposFuente) => {
     }
 }
 
+/*Cambiar tamaño de fuente*/
 
+const tamanioFuente = document.getElementById("tamanio-fuente-input");
+
+tamanioFuente.addEventListener('change', () =>{
+    textoArriba.style.fontSize = tamanioFuente.value + 'px';
+    textoAbajo.style.fontSize = tamanioFuente.value + 'px';
+});
+
+/*alineacion de texto*/
+
+//Alineación del texto meme
+const botonAlinearIzq = document.getElementById("boton-alineacion-izq");
+const botonAlinearCentro = document.getElementById("boton-alineacion-cen");
+const botonAlinearDer = document.getElementById("boton-alineacion-der");
+
+botonAlinearIzq.addEventListener('click', ()=>{
+    textoArriba.style.textAlign = "left";
+    textoAbajo.style.textAlign= "left";
+});
+
+botonAlinearCentro.addEventListener('click', ()=>{
+    textoArriba.style.textAlign = "center";
+    textoAbajo.style.textAlign= "center";
+});
+
+botonAlinearDer.addEventListener('click', ()=>{
+    textoArriba.style.textAlign = "right";
+    textoAbajo.style.textAlign= "right";
+});
+
+/*cambiar color del texto*/
+
+const colorTexto = document.getElementById("text-color-input");
+colorTexto.addEventListener('change', () => {
+    textoArriba.style.color = colorTexto.value;
+    textoAbajo.style.color = colorTexto.value;
+});
+
+/*cambiar color del fondo texto*/
+
+const colorTextoFondo = document.getElementById("text-background-input");
+colorTextoFondo.addEventListener('change', () => {
+    textoArriba.style.backgroundColor = colorTextoFondo.value;
+    textoAbajo.style.backgroundColor = colorTextoFondo.value;
+});
+
+
+/*tilde fondo transparente */
+const textoSinFondo = document.getElementById("tilde-sin-fondo");
+textoSinFondo.addEventListener('click', () => {
+    if (textoSinFondo.checked){
+        textoArriba.style.backgroundColor = "transparent";
+        textoAbajo.style.backgroundColor = "transparent";
+    }/*else {
+        textoArriba.style.backgroundColor = textoArriba.value ;
+        textoAbajo.style.backgroundColor = textoAbajo.value;
+    } // ver cuando se quita tilde */
+});
