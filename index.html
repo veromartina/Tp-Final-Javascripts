@@ -48,7 +48,7 @@
     <div class="contenedor-meme">
       <h2 id="texto-superior">TEXTO SUPERIOR</h2>
 
-      <div src="" alt="imagen" class="img-meme" id="imagen-meme" aria-label="Imagen de meme"></div>
+      <figure src="" alt="imagen" class="img-meme" id="imagen-meme" loading="lazy" ></figure>
 
       <h2 id="texto-inferior">TEXTO INFERIOR</h2>
     </div>
@@ -199,7 +199,7 @@
           <input type="number" name="Tamaño de fuente" aria-label="Tamaño de fuente" class="control-input-img"
             id="tamanio-fuente-input" min="12" value="40" />
           <!-- 
-              Alineaci´ón
+              Alineacion
             -->
           <div class="contenedor-botones boton-alineacion">
             <button class="boton boton-default" id="boton-alineacion-izq"
@@ -243,9 +243,9 @@
       <div class="panel-control">
         <h3 class="titulo-control-img">CONTORNO</h3>
         <div class="contenedor-botones-contorno">
-          <button class="boton boton-default" id="no-outline-button">Ninguno</button>
-          <button class="boton boton-default" id="light-outline-button">Claro</button>
-          <button class="boton boton-default" id="dark-outline-button">Oscuro</button>
+          <button class="boton boton-default" id="texto-sin-contorno">Ninguno</button>
+          <button class="boton boton-default" id="texto-contorno-claro">Claro</button>
+          <button class="boton boton-default" id="texto-contorno-oscuro">Oscuro</button>
         </div>
       </div>
       <!--
@@ -259,7 +259,7 @@
       <!-------------------------[ ALTO DE LINEA ]--------------------->
       <div class="panel-control">
         <h3 class="titulo-control-img">INTERLINEADO</h3>
-        <select id="line-height-input" class="control-input-img" aria-label="Interlineado">
+        <select id="interlinea-input" class="control-input-img" aria-label="Interlineado">
           <option value="0.8">0.8</option>
           <option value="1">1</option>
           <option value="1.2" selected>1.2</option>
@@ -268,6 +268,10 @@
           <option value="2.5">2.5</option>
         </select>
       </div>
+
+      <div class="restablecimiento">
+        <button class="boton boton-restablecer" id="restablecer-texto">Restablecer textos</button>
+      </div>
     </section>
 
   </aside>
@@ -275,7 +279,11 @@
 
   <script src="index.js"></script>
   <script src="https://kit.fontawesome.com/287a092c3d.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.1/dist/html2canvas.min.js"></script>
 
+  <!-- https://github.com/tsayen/dom-to-image -->
+
+    <script src="./assets/dom-to-image (1).js"></script>
 
 </body>
 

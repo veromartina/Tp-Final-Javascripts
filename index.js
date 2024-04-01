@@ -3,11 +3,13 @@
 
 const botonImagen = document.getElementById("panel-img-button");
 const botonTexto = document.getElementById("text-panel-button");
-const botonDescarga = document.getElementById("boton-descarga-meme")
 const botonModo = document.getElementById("round");
 const textoMemeSuperior = document.getElementById("texto-superior");
 const textoMemeInferior = document.getElementById("texto-inferior");
 const contenedorMeme = document.getElementById("contenedor-editor");
+const memeCompleto = document.getElementById("contenedor-meme");
+const botonDescarga = document.getElementById("boton-descarga-meme");
+
 const botonesHeader = document.getElementById("botones-header");
 
 //variables botones Imagen y Texto de pantalla principal
@@ -23,10 +25,6 @@ const PanelImagen = document.getElementById("panel-imgen")
 
 const imagenMeme = document.getElementById("imagen-meme");//// Se obtiene el elemento con el ID q es el contenedor donde se mostrará la imagen cargada.
 
-const modoColorInput =document.getElementById("modo-color-input")
-const modoColorInicio = document.getElementById("modo-color-inicio");
-
-
 
 // Filtros
 
@@ -41,6 +39,14 @@ const saturateDeslizante = document.getElementById('saturate-deslizante');
 const invertDeslizante = document.getElementById('invert-deslizante');
 
 const botonRestablecer = document.getElementById('boton-restablecer-filtros');
+
+
+const modoColorInput =document.getElementById("modo-color-input")
+const modoColorInicio = document.getElementById("modo-color-inicio");
+
+const sinContorno = document.getElementById("texto-sin-contorno");
+const claroContorno = document.getElementById("texto-contorno-claro");
+const oscuroContorno = document.getElementById("texto-contorno-oscuro");
 
 
 // boton cambio Modo claro/oscuro pantalla principal
@@ -63,6 +69,7 @@ function applyDarkMode() {
         contenedorMeme.style.backgroundColor = "#22007c";
         asidePanel.style.backgroundColor = "#140152";
         asidePanel.style.color = "#ebebeb";
+        imagenMeme.style.backgroundColor = "#97dffc"
 
         brightnessDeslizante.style.backgroundColor = "#bbd0ff";
         opacityDeslizante.style.backgroundColor = "#bbd0ff";
@@ -224,7 +231,7 @@ function aplicarFiltros() {
   };
 
 
-// Event listener para el botón de restablecimiento
+// botón de restablecimiento
 
 botonRestablecer.addEventListener('click', () => {
   // Restablecer los valores de los Deslizantes
@@ -246,16 +253,17 @@ botonRestablecer.addEventListener('click', () => {
 
 /*Input de entrada de texto*/
 
-const textoSuperiorInput = document.getElementById('texto-superior-input');
-const textoInferiorInput = document.getElementById('texto-inferior-input');
+const textoSuperiorInput = document.getElementById("texto-superior-input");
+const textoInferiorInput = document.getElementById("texto-inferior-input");
 const textoArriba = document.getElementById("texto-superior");
 const textoAbajo = document.getElementById("texto-inferior");
+
 
 textoSuperiorInput.addEventListener('input', () => {
     if (textoSuperiorInput.value !== ""){
         textoArriba.textContent = textoSuperiorInput.value;
     } else
-        textoArriba.textContent = "TEXTO SUPERIOR";
+    textoArriba.textContent = "TEXTO SUPERIOR";
     });
 
 textoInferiorInput.addEventListener('input', () => {
@@ -350,8 +358,8 @@ const cambiarFuente = (tiposFuente) => {
 const tamanioFuente = document.getElementById("tamanio-fuente-input");
 
 tamanioFuente.addEventListener('change', () =>{
-    textoArriba.style.fontSize = tamanioFuente.value + 'px';
-    textoAbajo.style.fontSize = tamanioFuente.value + 'px';
+    textoArriba.style.fontSize = tamanioFuente.value + "px" ;
+    textoAbajo.style.fontSize = tamanioFuente.value +"px";
 });
 
 /*alineacion de texto*/
@@ -399,8 +407,99 @@ textoSinFondo.addEventListener('click', () => {
     if (textoSinFondo.checked){
         textoArriba.style.backgroundColor = "transparent";
         textoAbajo.style.backgroundColor = "transparent";
-    }/*else {
-        textoArriba.style.backgroundColor = textoArriba.value ;
-        textoAbajo.style.backgroundColor = textoAbajo.value;
-    } // ver cuando se quita tilde */
+    }else {
+        applyDarkMode()
+    
+    }
+
 });
+
+/*Contorno en el texto */
+
+sinContorno.addEventListener('click', ()=> {
+    topText.style.textShadow = "transparent";
+    bottomText.style.textShadow = "transparent";
+  });
+  
+  claroContorno.addEventListener('click', ()=> {
+    textoArriba.style.textShadow = "1px 1px 5px white";
+    textoAbajo.style.textShadow = "1px 1px 5px white";
+  });
+  
+  oscuroContorno.addEventListener('click', ()=> {
+    textoArriba.style.textShadow = "1px 1px 5px black"; 
+    textoAbajo.style.textShadow = "1px 1px 5px black";
+  });
+
+  /*-----------------------------------------------------------------------------*/
+
+/* Texto espaciado */ 
+const espaciado = document.getElementById("padding-input");
+
+espaciado.addEventListener("change", () => {
+    textoArriba.style.letterSpacing = espaciado.value + "px";
+    textoAbajo.style.letterSpacing = espaciado.value + "px" ;
+});
+
+
+/*Menú texto interliniado  */
+const interlineado = document.getElementById("interlinea-input");
+const ceroPuntoOcho = document.getElementById("0.8");
+const uno = document.getElementById("1");
+const unoPuntoDos = document.getElementById("1.2");
+const unoPuntoCinco = document.getElementById("1.5");
+const dos = document.getElementById("2");
+const dosPuntoCinco = document.getElementById("2.5");
+
+interlineado.addEventListener('change', () => {
+    cambioInterlineado(interlineado);
+});
+
+const cambioInterlineado = (interlineado) => {
+    if (interlineado.value === "0.8"){
+        textoArriba.style.lineHeight  = "0.8";
+        textoAbajo.style.lineHeight  = "0.8";
+    }
+    if (interlineado.value === "1"){
+         textoArriba.style.lineHeight  = "1";
+        textoAbajo.style.lineHeight  = "1";
+    }
+    if (interlineado.value === "1.2"){
+        textoArriba.style.lineHeight  = "1.2";
+        textoAbajo.style.lineHeight  = "1.2";
+    }
+    if (interlineado.value === "1.5"){
+        textoArriba.style.lineHeight  = "1.5";
+        textoAbajo.style.lineHeight  = "1.5";
+    }
+    if (interlineado.value === "2"){
+        textoArriba.style.lineHeight  = "2";
+        textoAbajo.style.lineHeight  = "2";
+    }
+    }
+    if (interlineado.value === "2.5"){
+        textoArriba.style.lineHeight  = "2.5";
+        textoAbajo.style.lineHeight  = "2.5";
+    }
+
+/* Boton Descarga */
+
+botonDescarga.addEventListener('click', () => {
+
+    contenidoMeme = document.querySelector('#canvas-meme');
+    config = {
+        quality: 1 // sin bajar la calidad
+    }
+
+    // https://github.com/tsayen/dom-to-image
+
+    domtoimage.toJpeg(memeCompleto, config,{
+        useCORS: true
+    }).then(function (dataUrl) {
+        let link = document.createElement('a');
+        link.download = 'captured.png';
+        link.href = dataUrl;
+        link.click();
+    });
+});
+  
