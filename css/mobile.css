@@ -10,7 +10,7 @@ body {
 }
 header{
     width: 100%;
-    height: 0 auto;
+    height: auto;
 }
 /******** titulo H1 **********/
 
@@ -52,7 +52,7 @@ header{
     font-size: 25px;
     font-weight: 400;
     font-size: 14px;
-    height: 30px;
+    height: 20px;
     margin-top: 20px;
     padding: 15px 15px;
 }
@@ -85,9 +85,9 @@ textarea {
 
 .contenedor-interruptor {
     display: flex;
+    align-items: center;
     width: 100px;
     margin: 2.5px;
-    size: 50px;
 }
 
 .interruptor {
@@ -126,7 +126,6 @@ textarea {
     bottom: 5px;
     background-color: #997b66;
     --webkit-transition: 0.4s;
-    transform: 0.4s;
     border-radius: 50%;
 }
 

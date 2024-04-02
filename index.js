@@ -484,22 +484,29 @@ const cambioInterlineado = (interlineado) => {
 
 /* Boton Descarga */
 
-botonDescarga.addEventListener('click', () => {
-
-    contenidoMeme = document.querySelector('#canvas-meme');
+botonDescarga.addEventListener("click", () => {
+    const contenidoMeme = document.querySelector(".contenedor-meme");
     config = {
-        quality: 1 // sin bajar la calidad
+      quality: 1, // sin bajar la calidad
+    };
+  
+    if (!contenidoMeme) {
+      console.error("Elemento no encontrado");
+      return;
     }
-
-    // https://github.com/tsayen/dom-to-image
-
-    domtoimage.toJpeg(memeCompleto, config,{
-        useCORS: true
-    }).then(function (dataUrl) {
-        let link = document.createElement('a');
-        link.download = 'captured.png';
-        link.href = dataUrl;
+  
+    domtoimage
+      .toBlob(contenidoMeme)
+      .then(function (blob) {
+        const url = window.URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.download = "captured.png";
+        link.href = url;
         link.click();
-    });
-});
+        window.URL.revokeObjectURL(url);
+      })
+      .catch(function (error) {
+        console.error("Error al convertir a imagen:", error);
+      });
+  });
   
