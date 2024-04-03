@@ -164,7 +164,7 @@ function cargarImagen() { //función que se ejecuta cuando se presiona la tecla 
     let imagenUrl = document.getElementById("url-img-input").value; //se obtiene el valor del input
 
     imagenMeme.style.backgroundImage = "url('" + imagenUrl + "')"; //Se establece la URL de la imagen como fondo del elemento con ID "imagen-meme".
-    imagenMeme.style.backgroundSize = "contain";
+    imagenMeme.style.backgroundSize = "cover";
     document.getElementById('url-img-input').value = "";  // se borra el valor del input con ID "url-img-input" después de cargar la imagen.
 }
 
