@@ -49,7 +49,6 @@ header{
 }
 
 .boton-text {
-    font-size: 25px;
     font-weight: 400;
     font-size: 14px;
     height: 20px;
@@ -164,7 +163,6 @@ input:checked+.controlDeslizante:before {
 .contenedor-meme {
     width: 100%;
     max-width: 610px;
-    height: 300px;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -200,7 +198,7 @@ input:checked+.controlDeslizante:before {
 
 #imagen-meme {
     width: 100%;
-    height: 250px;
+    background-size: cover;
     flex-grow: 1;
 }
 
@@ -227,10 +225,10 @@ input:checked+.controlDeslizante:before {
  }
 
 .boton-cierre-panel {
-    
     position: fixed;
     top: 15px;
     right: 15px;
+  
     background-color: transparent;
     cursor: pointer;
     color:#997b66;
@@ -494,3 +492,9 @@ input[type='range'] {
 }
 
 /********* aside imagen Medias queries ********** /
+
+
+
+
+
+

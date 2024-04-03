@@ -80,8 +80,7 @@ function applyDarkMode() {
         hueDeslizante.style.backgroundColor = "#bbd0ff";
         saturateDeslizante.style.backgroundColor = "#bbd0ff";
         invertDeslizante.style.backgroundColor = "#bbd0ff";
-
-        botonRestablecer.style.backgroundColor ="#4361ee"
+        botonRestablecer.style.backgroundColor ="#4361ee";
       
 
     } else {
@@ -183,18 +182,18 @@ selectorFondo.addEventListener("change", ()=>{
 }); //se añade un event listener al elemento selectorFondo que escucha el evento "change", el cual se activa cuando el valor del selector cambia. Cuando esto sucede, se establece la propiedad backgroundImage del elemento imagenMeme con el resultado de llamar a la función aplyBlendMode().
 
 function aplyBlendMode() {
-    if (selectorFondo.value == 'ninguno'){
-     imagenMeme.style.backgroundBlendMode = 'normal';
-    } else if (selectorFondo.value == 'aclarar'){
-      imagenMeme.style.backgroundBlendMode = 'lighten';
-    } else if (selectorFondo.value == 'oscurecer'){
-      imagenMeme.style.backgroundBlendMode = 'darken';
-    } else if (selectorFondo.value == 'diferencia'){
-      imagenMeme.style.backgroundBlendMode = 'difference';
-    } else if (selectorFondo.value == 'luminucidad'){
-      imagenMeme.style.backgroundBlendMode = 'luminosity';
-    } else if (selectorFondo.value == 'multiplicar'){
-      imagenMeme.style.backgroundBlendMode = 'multiply';
+    if (selectorFondo.value == "ninguno"){
+     imagenMeme.style.backgroundBlendMode = "normal";
+    } else if (selectorFondo.value == "aclarar"){
+      imagenMeme.style.backgroundBlendMode = "lighten";
+    } else if (selectorFondo.value == "oscurecer"){
+      imagenMeme.style.backgroundBlendMode = "darken";
+    } else if (selectorFondo.value == "diferencia"){
+      imagenMeme.style.backgroundBlendMode = "difference";
+    } else if (selectorFondo.value == "luminucidad"){
+      imagenMeme.style.backgroundBlendMode = "luminosity";
+    } else if (selectorFondo.value == "multiplicar"){
+      imagenMeme.style.backgroundBlendMode = "multiply";
     }
   
     imagenMeme.style.backgroundColor = modoColorInput.value;
@@ -203,15 +202,15 @@ function aplyBlendMode() {
 
 // Event listeners para los Deslizantes
 
-brightnessDeslizante.addEventListener('input',() => {aplicarFiltros();});
-opacityDeslizante.addEventListener('input',() => {aplicarFiltros();});
-contrastDeslizante.addEventListener('input',() => {aplicarFiltros();});
-blurtDeslizante.addEventListener('input',() => {aplicarFiltros();});
-grayscaleDeslizante.addEventListener('input',() => {aplicarFiltros();});
-sepiaDeslizante.addEventListener('input',() => {aplicarFiltros();});
-hueDeslizante.addEventListener('input',() => {aplicarFiltros();});
-saturateDeslizante.addEventListener('input',() => {aplicarFiltros();});
-invertDeslizante.addEventListener('input',() => {aplicarFiltros();});
+brightnessDeslizante.addEventListener("input",() => {aplicarFiltros();});
+opacityDeslizante.addEventListener("input",() => {aplicarFiltros();});
+contrastDeslizante.addEventListener("input",() => {aplicarFiltros();});
+blurtDeslizante.addEventListener("input",() => {aplicarFiltros();});
+grayscaleDeslizante.addEventListener("input",() => {aplicarFiltros();});
+sepiaDeslizante.addEventListener("input",() => {aplicarFiltros();});
+hueDeslizante.addEventListener("input",() => {aplicarFiltros();});
+saturateDeslizante.addEventListener("input",() => {aplicarFiltros();});
+invertDeslizante.addEventListener("input",() => {aplicarFiltros();});
 
 // Función para aplicar los filtros
 
