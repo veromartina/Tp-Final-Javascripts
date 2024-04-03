@@ -48,6 +48,14 @@ const sinContorno = document.getElementById("texto-sin-contorno");
 const claroContorno = document.getElementById("texto-contorno-claro");
 const oscuroContorno = document.getElementById("texto-contorno-oscuro");
 
+const botonAlineacionIzq = document.getElementById("boton-alineacion-izq");
+const botonAlineacionCen = document.getElementById("boton-alineacion-cen");
+const botonAlineacionDer = document.getElementById("boton-alineacion-der");
+
+const textoContornoClaro = document.getElementById("texto-contorno-claro");
+const textoContornoOscuro = document.getElementById("texto-contorno-oscuro");
+const textoSinContorno = document.getElementById("texto-sin-contorno");
+
 
 // boton cambio Modo claro/oscuro pantalla principal
 
@@ -55,64 +63,80 @@ let isDarkMode = true;
 function applyDarkMode() {
 
     if (isDarkMode) {
-        document.body.style.backgroundColor = "#140152";
-        document.body.style.color = "#ebebeb";
-        botonImagen.style.color = "#ebebeb";
-        botonTexto.style.color = "#ebebeb";
-        botonDescarga.style.color = "#ebebeb";
-        botonModo.style.backgroundColor = "#4361ee"
-        botonTexto.style.backgroundColor = "#4361ee";
-        botonImagen.style.backgroundColor = "#4361ee";
-        botonDescarga.style.backgroundColor = "#4361ee";
-        textoMemeSuperior.style.backgroundColor = "#0d00a4";
-        textoMemeInferior.style.backgroundColor = "#0d00a4";
-        contenedorMeme.style.backgroundColor = "#22007c";
-        asidePanel.style.backgroundColor = "#140152";
-        asidePanel.style.color = "#ebebeb";
-        imagenMeme.style.backgroundColor = "#97dffc"
+        document.body.style.backgroundColor = "var(--color-fondo)";
+        document.body.style.color = "var(--color-letras)";
+        botonImagen.style.color = "var(--color-letras)";
+        botonTexto.style.color = "var(--color-letras)";
+        botonDescarga.style.color = "var(--color-letras)";
+        botonModo.style.backgroundColor = "var(--background-botones)";
+        botonTexto.style.backgroundColor = "var(--background-botones)";
+        botonImagen.style.backgroundColor = "var(--background-botones)";
+        botonDescarga.style.backgroundColor = "var(--background-botones)";
+        textoMemeSuperior.style.backgroundColor = "var(--background-botones)";
+        textoMemeInferior.style.backgroundColor = "var(--background-botones)";
+        contenedorMeme.style.backgroundColor = "var(--background-editor-meme)";
+        asidePanel.style.backgroundColor = "var(--color-fondo)";
+        asidePanel.style.color = "var(--color-letras)";
+        imagenMeme.style.backgroundColor = "var(--background-imagen)";
 
-        brightnessDeslizante.style.backgroundColor = "#bbd0ff";
-        opacityDeslizante.style.backgroundColor = "#bbd0ff";
-        contrastDeslizante.style.backgroundColor = "#bbd0ff";
-        grayscaleDeslizante.style.backgroundColor = "#bbd0ff";
-        sepiaDeslizante.style.backgroundColor = "#bbd0ff";
-        blurtDeslizante.style.backgroundColor = "#bbd0ff";
-        hueDeslizante.style.backgroundColor = "#bbd0ff";
-        saturateDeslizante.style.backgroundColor = "#bbd0ff";
-        invertDeslizante.style.backgroundColor = "#bbd0ff";
-        botonRestablecer.style.backgroundColor ="#4361ee";
-      
+        brightnessDeslizante.style.backgroundColor = "var(--background-filtros)";
+        opacityDeslizante.style.backgroundColor = "var(--background-filtros)";
+        contrastDeslizante.style.backgroundColor = "var(--background-filtros)";
+        grayscaleDeslizante.style.backgroundColor = "var(--background-filtros)";
+        sepiaDeslizante.style.backgroundColor = "var(--background-filtros)";
+        blurtDeslizante.style.backgroundColor = "var(--background-filtros)";
+        hueDeslizante.style.backgroundColor = "var(--background-filtros)";
+        saturateDeslizante.style.backgroundColor = "var(--background-filtros)";
+        invertDeslizante.style.backgroundColor = "var(--background-filtros)";
+        botonRestablecer.style.backgroundColor = "var(--background-botones)";
+
+        botonAlineacionIzq.style.backgroundColor = "var(--background-botones)";
+        botonAlineacionCen.style.backgroundColor = "var(--background-botones)";
+        botonAlineacionDer.style.backgroundColor = "var(--background-botones)";
+
+        textoContornoClaro.style.backgroundColor = "var(--background-botones)";
+        textoContornoOscuro.style.backgroundColor = "var(--background-botones)";
+        textoSinContorno.style.backgroundColor = "var(--background-botones)";
+        
 
     } else {
-        document.body.style.backgroundColor = "#FFB5A7";
-        document.body.style.color = "#997b66";
-        botonImagen.style.color = "#997b66";
-        botonTexto.style.color = "#997b66";
-        botonTexto.style.backgroundColor = "#FEC89A";
-        botonImagen.style.backgroundColor = "#FEC89A";
-        botonDescarga.style.backgroundColor = "#FEC89A";
-        botonDescarga.style.color = "#997b66";
-        botonModo.style.backgroundColor = "#FEC89A";
-        textoMemeSuperior.style.backgroundColor = "#FEC89A";
-        textoMemeInferior.style.backgroundColor = "#FEC89A";
-        imagenMeme.style.background = "#F9DCC4";
-        contenedorMeme.style.backgroundColor = "#FCD5CE";
-        asidePanel.style.color = "#997b66";
-        asidePanel.style.backgroundColor = "#ffe3e0";
-        selectorFondo.style.color = "#997b66"; 
+        document.body.style.backgroundColor = "var(--color-fondo1)";
+        document.body.style.color = "var(--color-letras1)";
+        botonImagen.style.color = "var(--color-letras1)";
+        botonTexto.style.color = "var(--color-letras1)";
+        botonTexto.style.backgroundColor = "var(--background-botones1)";
+        botonImagen.style.backgroundColor = "var(--background-botones1)";
+        botonDescarga.style.backgroundColor = "var(--background-botones1)";
+        botonDescarga.style.color = "var(--color-letras1)";
+        botonModo.style.backgroundColor = "var(--background-botones1)";
+        textoMemeSuperior.style.backgroundColor = "var(--background-botones1)";
+        textoMemeInferior.style.backgroundColor = "var(--background-botones1)";
+        imagenMeme.style.background = "var(--background-imagen1)";
+        contenedorMeme.style.backgroundColor = "var(--background-editor-meme1)";
+        asidePanel.style.color = "var(--color-letras1)";
+        asidePanel.style.backgroundColor = "var(--color-fondo1)";
+        selectorFondo.style.color = "var(--color-letras1)"; 
 
-        brightnessDeslizante.style.backgroundColor = "#FFB5A7";
-        opacityDeslizante.style.backgroundColor = "#FFB5A7";
-        contrastDeslizante.style.backgroundColor = "#FFB5A7";
-        grayscaleDeslizante.style.backgroundColor = "#FFB5A7";
-        sepiaDeslizante.style.backgroundColor = "#FFB5A7";
-        blurtDeslizante.style.backgroundColor = "#FFB5A7";
-        hueDeslizante.style.backgroundColor = "#FFB5A7";
-        saturateDeslizante.style.backgroundColor = "#FFB5A7";
-        invertDeslizante.style.backgroundColor = "#FFB5A7";
-        botonRestablecer.style.backgroundColor = "#FEC89A"
-      
+        brightnessDeslizante.style.backgroundColor = "var( --color-letras1)";
+        opacityDeslizante.style.backgroundColor = "var( --color-letras1)";
+        contrastDeslizante.style.backgroundColor = "var( --color-letras1)";
+        grayscaleDeslizante.style.backgroundColor = "var( --color-letras1)";
+        sepiaDeslizante.style.backgroundColor = "var( --color-letras1)";
+        blurtDeslizante.style.backgroundColor = "var( --color-letras1)";
+        hueDeslizante.style.backgroundColor = "var( --color-letras1)";
+        saturateDeslizante.style.backgroundColor = "var( --color-letras1)";
+        invertDeslizante.style.backgroundColor = "var( --color-letras1)";
+        botonRestablecer.style.backgroundColor = "var( --background-botones1)";
+        botonRestablecer.style.color = "var(--color-letras1)";
 
+        botonAlineacionIzq.style.backgroundColor = "var(--background-botones1 )";
+        botonAlineacionCen.style.backgroundColor = "var(--background-botones1)";
+        botonAlineacionDer.style.backgroundColor = "var(--background-botones1)";
+
+        textoContornoClaro.style.backgroundColor = "var(--background-botones1)";
+        textoContornoOscuro.style.backgroundColor = "var(--background-botones1)";
+        textoSinContorno.style.backgroundColor = "var(--background-botones1)";
+        
     }
 }
 applyDarkMode(); // apply initial dark mode state
@@ -139,7 +163,7 @@ botonTexto.addEventListener("click", () => {
     panelImagen.style.display = "none";
     panelTexto.style.display = "block";
     botonCierre.style.display = "block";
-
+ 
    
 });  
 

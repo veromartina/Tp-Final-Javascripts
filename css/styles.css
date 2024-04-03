@@ -21,14 +21,24 @@
 /****   VARIABLES   root  *****/
 
 :root{
- /*   --color-header-botones: ;
-    --color-boton-default-hover: ;*/
-    --background-cont-meme: #F9DCC4;
-    --background-editor-meme: #F8EDEB;
-  /*  --background-texto-meme:;*/
-    --color-panel:  #F9DCC4;
-    --color-input: #F8EDEB;
-   
+ /* modo oscuro */
+  --color-fondo: #140152 ;
+  --color-letras: #ebebeb;
+  --background-botones: #4361ee;
+  --background-editor-meme: #22007c;
+  --background-imagen: #97dffc;
+  --background-filtros : #bbd0ff;
+
+/* modo claro */
+  --color-fondo1: #FFB5A7;
+  --color-letras1: #997b66;
+  --background-botones1 :#FEC89A;
+  --background-editor-meme1: #FCD5CE;
+  --background-imagen1: #F9DCC4;
+
+  --background-filtros1: "red";  
+  
+ 
 }
 
 /********animaciones posibles***************************/

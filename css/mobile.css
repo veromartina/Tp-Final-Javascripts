@@ -219,9 +219,9 @@ input:checked+.controlDeslizante:before {
 
  .panel-imagen .panel-texto {
     width: 100%;
-    height: 400px;
-    
+    height: 400px;  
  }
+
 
 .boton-cierre-panel {
     position: fixed;
