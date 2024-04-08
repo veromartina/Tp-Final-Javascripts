@@ -177,11 +177,9 @@ botonCierre.addEventListener("click", () => {
 /////se da funcionalidad a las opciones de la <seccion "panel-imgen">    /////////
 //ingreso de url
 
-document.getElementById("url-img-input").addEventListener("keydown", (event) => {
-    if (event.key === "Enter") {
+document.getElementById("url-img-input").addEventListener("change", () => {
         cargarImagen();
-    }
-});
+    });
 
 function cargarImagen() { //función que se ejecuta cuando se presiona la tecla "Enter" en el input 
 
