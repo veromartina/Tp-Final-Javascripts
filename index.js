@@ -503,8 +503,26 @@ const cambioInterlineado = (interlineado) => {
         textoAbajo.style.lineHeight  = "2.5";
     }
 
-/* Boton Descarga */
+/* DESCARGAR MEME */
 
+// Selecciona el elemento HTML con el ID 'button-descarga' y lo asigna a la variable 'botonDescarga'
+
+// Selecciona el elemento HTML con el ID 'contenedor-meme' y lo asigna a la variable 'contenedorMeme'
+
+// Declara una función llamada 'descargarMeme'
+function descargarMeme () {
+    // Utiliza la biblioteca 'domtoimage' para convertir el 'contenedorMeme' en un blob de imagen
+    domtoimage.toBlob(memeCompleto).then(function (blob) {
+        // Usa la función 'saveAs' para descargar el blob como un archivo PNG llamado 'mi-meme.png'
+        saveAs(blob, 'mi-meme.png');
+    });
+}    
+// Agrega un event listener al 'botonDescarga' que llama a la función 'descargarMeme' cuando se hace clic
+botonDescarga.addEventListener('click', descargarMeme);
+
+
+/* Boton Descarga */
+/*
 botonDescarga.addEventListener("click", () => {
     const contenidoMeme = document.querySelector(".contenedor-meme");
     config = {
@@ -530,3 +548,4 @@ botonDescarga.addEventListener("click", () => {
         console.error("Error al convertir a imagen:", error);
       });
   });
+*/

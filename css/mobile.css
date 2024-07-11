@@ -56,14 +56,6 @@ header{
     padding: 15px 15px;
 }
 
-/****   efecto al hacer clic ****/
-/*
-.boton-text:hover,
-.boton-text:focus,
-.boton-default:hover,
-.boton-default:focus {}
-
-*/
 .contenedor-botones .boton {
     margin: 2.5px;
 }
