@@ -139,7 +139,7 @@ function applyDarkMode() {
         
     }
 }
-applyDarkMode(); // apply initial dark mode state
+applyDarkMode(); // aplicar el estado inicial del modo oscuro*
 
 function toggleDarkMode() {
     isDarkMode = !isDarkMode;
